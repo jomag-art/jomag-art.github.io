@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/icon-512.png">
+    <title>Thomas Prautsch | Künstler</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+
+    <link rel="stylesheet" href="css/css2.css">
+    <link rel="stylesheet" href="css/Styles.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#home" class="logo">Thomas Prautsch</a>
+
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#galerie" class="nav-link">Galerie</a></li>
+                <li class="nav-item"><a href="#texte" class="nav-link">Texte</a></li>
+                <li class="nav-item"><a href="vita.html" class="nav-link">CV</a></li>
+                <li class="nav-item"><a href="#kontakt" class="nav-link">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section bg-light">
+            <div class="container">
+                <h1 class="main-title"><span class="visually-hidden">Thomas Prautsch – </span>Malerei und Zeichnung</h1>
+            </div>
+
+            <div class="welcome-bg-parallax"></div>
+
+            <div class="parallax-spacer"></div>
+        </section>
+
+        <section id="galerie" class="section gallery-minimal">
+            <div class="container">
+                <h2 class="gallery-title">Werkgruppen</h2>
+                <div class="jomag-grid">
+
+                    <a href="stadtansichten.html" class="jomag-item">
+                        <div class="jomag-img-wrapper">
+                            <img src="images/stadt-serie.jpg" alt="Stadtansichten">
+                        </div>
+                        <div class="jomag-info">
+                            <h3 class="jomag-name">Stadtansichten</h3>
+                        </div>
+                    </a>
+
+                    <a href="feuerbilder.html" class="jomag-item">
+                        <div class="jomag-img-wrapper">
+                            <img src="images/feuer-serie.jpg" alt="Feuerbilder">
+                        </div>
+                        <div class="jomag-info">
+                            <h3 class="jomag-name">Feuerbilder</h3>
+                        </div>
+                    </a>
+
+                    <a href="treppenbilder.html" class="jomag-item">
+                        <div class="jomag-img-wrapper">
+                            <img src="images/treppen-serie.jpg" alt="Treppenbilder">
+                        </div>
+                        <div class="jomag-info">
+                            <h3 class="jomag-name">Treppenbilder</h3>
+                        </div>
+                    </a>
+
+                    <a href="landschaften.html" class="jomag-item">
+                        <div class="jomag-img-wrapper">
+                            <img src="images/landschaft-serie.jpg" alt="Landschaften">
+                        </div>
+                        <div class="jomag-info">
+                            <h3 class="jomag-name">Landschaften</h3>
+                        </div>
+                    </a>
+
+                    <a href="stadtlichter.html" class="jomag-item">
+                        <div class="jomag-img-wrapper">
+                            <img src="images/stadtlicht-serie.jpg" alt="Stadtlichter">
+                        </div>
+                        <div class="jomag-info">
+                            <h3 class="jomag-name">Stadtlichter</h3>
+                        </div>
+                    </a>
+
+                    <a href="papierarbeiten.html" class="jomag-item">
+                        <div class="jomag-img-wrapper">
+                            <img src="images/papier-serie.jpg" alt="Papierarbeiten">
+                        </div>
+                        <div class="jomag-info">
+                            <h3 class="jomag-name">Arbeiten auf Papier</h3>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="texte" class="section">
+            <div class="container">
+                <h2>Katalogtexte &amp; Rezensionen</h2>
+
+                <div class="journal-fullwidth" style="margin-top: 30px;">
+                    <div class="info-box" style="width: 100%; margin: 0; padding: 40px 0;">
+
+                        <div style="max-width: 850px; margin: 0 auto; padding: 0 40px;">
+
+                            <li class="text-liste-item"
+                                style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
+                                <div class="text-info">
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Modell und
+                                        Wirklichkeit</strong>
+                                    <small style="color: #777; font-size: 0.9rem;">Andreas Moersener</small>
+                                </div>
+                                <button class="contact-btn btn-lesen" onclick="openTextModal('modell')">Lesen</button>
+                            </li>
+
+                            <li class="text-liste-item"
+                                style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
+                                <div class="text-info">
+                                    <strong
+                                        style="display: block; font-size: 1.15rem; font-weight: 400;">Spurensuche</strong>
+                                    <small style="color: #777; font-size: 0.9rem;">Timm Ulrichs</small>
+                                </div>
+                                <button class="contact-btn btn-lesen"
+                                    onclick="openTextModal('spurensuche')">Lesen</button>
+                            </li>
+
+                            <li class="text-liste-item"
+                                style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
+                                <div class="text-info">
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Bausteine für
+                                        Licht &amp; Schatten</strong>
+                                    <small style="color: #777; font-size: 0.9rem;">Manfred Schneckenburger</small>
+                                </div>
+                                <button class="contact-btn btn-lesen"
+                                    onclick="openTextModal('bausteine')">Lesen</button>
+                            </li>
+
+                            <li class="text-liste-item"
+                                style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
+                                <div class="text-info">
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Der Maler
+                                        Thomas Prautsch</strong>
+                                    <small style="color: #777; font-size: 0.9rem;">Prof. Udo Scheel</small>
+                                </div>
+                                <button class="contact-btn btn-lesen" onclick="openTextModal('maler')">Lesen</button>
+                            </li>
+
+                            <li class="text-liste-item"
+                                style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
+                                <div class="text-info">
+                                    <strong
+                                        style="display: block; font-size: 1.15rem; font-weight: 400;">Aussichtsreich</strong>
+                                    <small style="color: #777; font-size: 0.9rem;">Wolfgang Türk</small>
+                                </div>
+                                <button class="contact-btn btn-lesen" onclick="openTextModal('aussicht')">Lesen</button>
+                            </li>
+
+                            <li class="text-liste-item"
+                                style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
+                                <div class="text-info">
+                                    <strong
+                                        style="display: block; font-size: 1.15rem; font-weight: 400;">Preisträger-Laudatio</strong>
+                                    <small style="color: #777; font-size: 0.9rem;">H.G. Eisenhut</small>
+                                </div>
+                                <button class="contact-btn btn-lesen"
+                                    onclick="openTextModal('preisträger')">Lesen</button>
+                            </li>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section id="kontakt" class="section bg-light">
+            <div class="container">
+                <h2>Kontakt &amp; Atelier</h2>
+
+                <div class="contact-wrapper">
+                    <div class="contact-image">
+                        <img src="images/portrait.jpg" alt="Portrait Thomas Prautsch">
+                    </div>
+
+                    <div class="contact-info">
+                        <p class="address">
+                            <strong>Atelier:</strong><br>
+                            Am Hawerkamp 31, Haus A<br>
+                            48155 Münster
+                        </p>
+
+                        <div class="contact-links">
+                            <a href="mailto:mail@thomasprautsch.de" class="contact-btn">
+                                ✉ mail@thomasprautsch.de
+                            </a>
+
+                            <a href="tel:+492516068474" class="contact-btn">
+                                ☏ Tel: 0251 - 606 84 74
+                            </a>
+
+                            <a href="tel:+491773411801" class="contact-btn">
+                                📱 Mobil: 0177 - 34 11 801
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Thomas Prautsch. Alle Rechte vorbehalten.</p>
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 5px;">
+            Design &amp; Realisierung: Johann Wömpener
+        </p>
+        <div class="footer-links">
+            <a href="impressum.html" style="color: white; margin-right: 15px;">Impressum</a>
+            <a href="datenschutz.html" style="color: white;">Datenschutz</a>
+        </div>
+    </footer>
+
+    <div id="textModal" class="lightbox" onclick="if(event.target == this) closeTextModal()">
+        <span class="close-btn" onclick="closeTextModal()">X</span>
+        <div class="modal-body" style="background: white; padding: 50px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
+            <h2 id="modalTitle" style="font-weight: 300; margin-bottom: 10px;">&nbsp;</h2>
+            <p id="modalAuthor" style="font-style: italic; color: #888; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;"></p>
+            <div id="modalFullText" style="text-align: justify; hyphens: auto;"></div>
+        </div>
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close close-btn">X</span>
+        <img class="lightbox-content" id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Großansicht Kunstwerk">
+        <div id="caption"></div>
+    </div>
+
+    <script src="css/Script.js"></script>
+</body>
+</html>
