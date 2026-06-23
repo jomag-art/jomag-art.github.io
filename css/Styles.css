@@ -677,18 +677,21 @@ h1.main-title {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.3); /* Etwas dezenteres Schwarz-Grau */
+    font-size: 4rem; /* Etwas flacher/kleiner als die riesigen 5rem */
+    font-weight: 100; /* Macht die neuen &lt; und &gt; Zeichen hauchdünn! */
+    font-family: "Roboto", sans-serif; /* Gleiche feine Schrift wie beim Kreuz */
     padding: 20px;
     cursor: pointer;
     user-select: none;
     z-index: 3010;
-    transition: color 0.3s, transform 0.2s;
+    transition: color 0.3s, transform 0.2s, opacity 0.3s;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev { left: 20px; }
+.next { right: 20px; }
 
+/* Hover-Effekt am PC */
 .prev:hover, .next:hover { 
     color: rgba(0, 0, 0, 1); 
     transform: translateY(-50%) scale(1.1);
