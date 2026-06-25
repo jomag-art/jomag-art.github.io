@@ -159,7 +159,7 @@ function openTextModal(id) {
     const data = texteSammlung[id];
     if (data) {
         document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalAuthor').innerText = "Text von " + data.author;
+        document.getElementById('modalAuthor').innerText = data.author;
         document.getElementById('modalFullText').innerHTML = data.content;
         document.getElementById('textModal').style.display = 'flex';
         document.body.style.overflow = 'hidden';
