@@ -778,7 +778,6 @@ h1.main-title {
         transform: none;            
     }
 
-    /* 2. DAS BILD: Wir zwingen es mit 'padding-top', vom Kreuz wegzurücken */
     .lightbox .lightbox-content {
         padding-top: 60px;          /* Schiebt das Bild sicher nach unten, weg vom Kreuz! */
         max-height: 65vh;           /* Kürzt die maximale Bildhöhe, um unten Platz für Text & Pfeile zu machen */
@@ -787,13 +786,12 @@ h1.main-title {
         margin-top: 0;              /* Setzt eventuelle alte Margins zurück */
     }
 
-    /* 3. DIE PFEILE: Werden kompakter und wandern tiefer, unter den Text */
     .lightbox .prev, 
     .lightbox .next {
         top: auto;
         bottom: 15px;               /* Ganz nah an den unteren Bildschirmrand verbannt */
         transform: none;
-        font-size: 2rem;            /* Pfeile etwas kleiner gemacht, damit sie dezenter sind */
+        font-size: 3rem;            /* Pfeile etwas kleiner gemacht, damit sie dezenter sind */
         padding: 10px;
         background-color: rgba(255, 255, 255, 0.6); /* Ganz zarter, unaufdringlicher Kreis */
         border-radius: 50%;
