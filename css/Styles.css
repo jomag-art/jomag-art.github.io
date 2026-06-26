@@ -760,7 +760,6 @@ h1.main-title {
    ========================================================================== */
 @media (max-width: 900px) { 
     
-    /* 1. DAS KREUZ: Schwebend, edel und mit riesigem, unsichtbarem Klickfeld */
     .lightbox .close,
     .lightbox .close-btn {
         top: 15px;                  
