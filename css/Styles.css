@@ -219,13 +219,13 @@ h1.main-title {
 }
 
 .welcome-bg-parallax {
-    height: 550px;             
+    height: 566px;             
     width: 100vw;              
     position: fixed;           
     top: 145px;
     left: 0;     
     z-index: -1;               
-    background-image: url("../images/atelier-pano.jpg");
+    background-image: url("../images/thomas-prautsch-atelier-pano.webp");
     background-size: cover;
     background-position: 33% center; 
 }
@@ -319,6 +319,12 @@ h1.main-title {
     object-position: center;
     cursor: pointer;
     transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
+    image-rendering: -webkit-optimize-contrast; /* Schärft Kanten in Safari/Chrome */
+    transform: translateZ(0); /* Aktiviert permanenten 3D-Modus gegen den End-Ruckler */
+    filter: blur(0px); /* Ein Trick: Zwingt den Browser, das Bild immer als 'Grafik' zu rendern */
 }
 
 .jomag-item:hover .jomag-img-wrapper img {
@@ -877,15 +883,8 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   STARTBILD HOVER EFFEKT
+   TRENNLINIEN DER ABSCHNITTE (SECTIONS)
    ========================================================================== */
-.welcome-bg-parallax {
-    transition: transform 0.8s ease-out; 
-}
-
-.welcome-bg-parallax:hover {
-    transform: scale(1.02); 
-}
 
 #galerie {
     border-top: 1px solid rgba(0, 0, 0, 0.15); 
