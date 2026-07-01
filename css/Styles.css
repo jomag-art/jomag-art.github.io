@@ -807,7 +807,7 @@ h1.main-title {
     .lightbox .prev, 
     .lightbox .next {
         top: auto;
-        bottom: 15px;               /* Ganz nah an den unteren Bildschirmrand verbannt */
+        bottom: 55px;               /* Ganz nah an den unteren Bildschirmrand verbannt 15px , nun weiter oben */
         transform: none;
         font-size: 3rem;            /* Pfeile etwas kleiner gemacht, damit sie dezenter sind */
         padding: 10px;
@@ -827,7 +827,7 @@ h1.main-title {
     /* 4. DER TEXT (CAPTION): Sitzt jetzt sicher ÜBER den Pfeilen */
     #caption { 
         margin-top: 15px;
-        margin-bottom: 70px;        /* Drückt den Text nach oben, weg von den Pfeilen */
+        margin-bottom: 115px;        /* Drückt den Text nach oben, weg von den Pfeilen */
         max-width: 85%; 
         font-size: 0.85rem;
     }
