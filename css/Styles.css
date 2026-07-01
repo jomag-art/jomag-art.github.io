@@ -909,3 +909,29 @@ h1.main-title {
 #kontakt {
     border-top: 1px solid rgba(0, 0, 0, 0.07);
 }
+
+/* Der Zurück-Button als feiner, eckiger Kasten */
+.back-box-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 30px;
+    background-color: #ffffff;
+    color: #333333;             
+    border: 1px solid #cccccc;  
+    border-radius: var(--main-radius, 4px); 
+    text-decoration: none;
+    font-size: 2rem;          
+    padding-bottom: 5px;       
+    
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.back-box-btn:hover {
+    background-color: var(--primary-color, #333);
+    color: #ffffff;
+    border-color: var(--primary-color, #333);
+    transform: translateX(3px); /* Bewegt den Pfeil beim Hovern minimal nach rechts (Richtung Daumen) */
+}
