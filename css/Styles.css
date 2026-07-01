@@ -810,14 +810,12 @@ h1.main-title {
         bottom: 55px;               /* Ganz nah an den unteren Bildschirmrand verbannt 15px , nun weiter oben */
         transform: none;
         font-size: 3rem;            /* Pfeile etwas kleiner gemacht, damit sie dezenter sind */
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.6); /* Ganz zarter, unaufdringlicher Kreis */
-        border-radius: 50%;
-        width: 45px;                /* Kompakterer Kreis (45px statt 60px) */
-        height: 45px;         
+        padding: 0px;
+        background-color: transparent;        
         display: flex;
         align-items: center;
         justify-content: center;
+        color: #000000;
         z-index: 3100;
     }
 
