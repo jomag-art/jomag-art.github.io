@@ -807,7 +807,7 @@ h1.main-title {
     .lightbox .prev, 
     .lightbox .next {
         top: auto;
-        bottom: 55px;               /* Ganz nah an den unteren Bildschirmrand verbannt 15px , nun weiter oben */
+        bottom: 35px;               /* Abstand vom unteren Bildschirmrand */
         transform: none;
         font-size: 3rem;            /* Pfeile etwas kleiner gemacht, damit sie dezenter sind */
         padding: 0px;
