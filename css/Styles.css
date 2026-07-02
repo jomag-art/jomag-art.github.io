@@ -653,11 +653,11 @@ h1.main-title {
 }
 
 .lightbox-content {
-    width: 90vw; 
-    height: 80vh; 
+    width: auto;             /* Bild nutzt seine natürliche Originalbreite... */
+    height: auto;            /* und seine natürliche Originalhöhe */
+    max-width: 90vw;         /* wird aber nie breiter als 90% des Bildschirms */
+    max-height: 80vh;        /* und nie höher als 80% des Bildschirms */
     object-fit: contain; 
-    max-width: 95%;
-    max-height: 85%;
     animation: zoom 0.3s ease;
 }
 
