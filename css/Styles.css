@@ -313,18 +313,22 @@ h1.main-title {
 }
 
 .jomag-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    /* ÄNDERUNG: Nutzt die natürliche Größe des Bildes, dehnt es aber nie weiter als die Kachel */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Zeigt das komplette Bild proportionsgetreu, ohne Beschneidung */
+    
     object-position: center;
     cursor: pointer;
     transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: transform;
-    image-rendering: -webkit-optimize-contrast; /* Schärft Kanten in Safari/Chrome */
-    transform: translateZ(0); /* Aktiviert permanenten 3D-Modus gegen den End-Ruckler */
-    filter: blur(0px); /* Ein Trick: Zwingt den Browser, das Bild immer als 'Grafik' zu rendern */
+    image-rendering: -webkit-optimize-contrast; 
+    transform: translateZ(0); 
+    filter: blur(0px); 
 }
 
 .jomag-item:hover .jomag-img-wrapper img {
@@ -359,10 +363,25 @@ h1.main-title {
     aspect-ratio: 4 / 3;
     background-color: #FFFFFF;
     margin-bottom: 15px;
+    /* NEU: Zentriert das Bild perfekt in der 4:3 Kachel */
+    display: flex;
+    justify-content: center; /* Waagerecht zentrieren */
+    align-items: center;     /* Senkrecht zentrieren */
 }
 
 .gallery-page .jomag-img-wrapper img {
     object-fit: contain;
+    /* NEU: Schützt kleine Bilder davor, über ihre Originalgröße gedehnt zu werden */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Verkleinert gezielt nur Bilder, die das Label "miniatur-ansicht" haben */
+.gallery-page .jomag-img-wrapper.miniatur-ansicht img {
+    max-width: 65%; 
+    max-height: 65%;
 }
 
 .gallery-page .jomag-name {
