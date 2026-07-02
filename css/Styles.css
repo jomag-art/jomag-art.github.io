@@ -807,9 +807,9 @@ h1.main-title {
     .lightbox .prev, 
     .lightbox .next {
         top: auto;
-        bottom: 35px;               /* Abstand vom unteren Bildschirmrand */
+        bottom: 30px;               /* Abstand vom unteren Bildschirmrand */
         transform: none;
-        font-size: 3rem;            /* Pfeile etwas kleiner gemacht, damit sie dezenter sind */
+        font-size: 2.2rem;            /* Pfeile Größe */
         padding: 0px;
         background-color: transparent;        
         display: flex;
