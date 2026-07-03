@@ -664,6 +664,13 @@ h1.main-title {
 }
 
 /* ==========================================================================
+   NEU: EINHEITLICHE BREITE FÜR DIE KATEGORIE-BUTTONS
+   ========================================================================== */
+.bottom-nav .btn-group .contact-btn {
+    min-width: 155px; /* Bringt alle Buttons auf dem PC auf die gleiche, edle Breite */
+}
+
+/* ==========================================================================
    UNTERE NAVIGATION (MOBILE OPTIMIERUNG)
    ========================================================================== */
 .bottom-nav .btn-group {
@@ -672,6 +679,14 @@ h1.main-title {
     gap: 12px;             
     justify-content: center; 
     margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .bottom-nav .btn-group .contact-btn {
+        min-width: 135px;    /* Etwas schmaler auf dem Handy */
+        font-size: 0.85rem;  /* Schrift minimal kleiner, damit lange Wörter nicht umbrechen */
+        padding: 0 10px;     /* Weniger Innenabstand links/rechts, um Platz zu sparen */
+    }
 }
 
 /* ==========================================================================
