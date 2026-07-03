@@ -390,27 +390,27 @@ h1.main-title {
 }
 
 @media (max-width: 768px) {
-    /* 1. Das Raster anpassen */
+    /* 1. Das Raster für die Galerie anpassen */
     .gallery-page.jomag-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        row-gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+        row-gap: 15px !important;
     }
 
-    /* 2. Den Wrapper zwingen, sein Galerie-Format zu halten (schlägt die Hauptseite, weil der Pfad länger ist) */
-    .gallery-page.jomag-grid .jomag-img-wrapper {
-        aspect-ratio: 4 / 3;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    /* 2. Den Wrapper zentrieren – direkt über .gallery-page angesprochen */
+    .gallery-page .jomag-img-wrapper {
+        aspect-ratio: 4 / 3 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 
-    /* 3. Das Bild innerhalb der Galerie-Kachel schützen */
-    .gallery-page.jomag-grid .jomag-img-wrapper img {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
+    /* 3. Das Bild innerhalb der Kachel vor dem Strecken schützen */
+    .gallery-page .jomag-img-wrapper img {
+        width: auto !important;
+        height: auto !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
     }
 }
 
