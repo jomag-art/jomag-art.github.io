@@ -638,7 +638,7 @@ h1.main-title {
     cursor: pointer;
     position: relative;
     z-index: 1;
-    min-width: 140px;             /* Gekürzt von 160px auf 140px: Gibt dem Text Platz! */
+    min-width: 100px;             /* Gekürzt von 160px auf 100px: Gibt dem Text Platz! */
     max-width: 100%;              /* NEU: Verhindert, dass der Button jemals breiter als der Bildschirm wird */
 }
 
