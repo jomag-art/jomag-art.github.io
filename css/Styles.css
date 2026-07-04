@@ -392,12 +392,11 @@ h1.main-title {
 @media (max-width: 768px) {
     .gallery-page.jomag-grid {
         grid-template-columns: 1fr; /* Nur noch 1 große Spalte statt repeat(...) */
-        row-gap: 12px;              /* Großzügigerer Abstand nach unten für ein ruhigeres Auge */
+        row-gap: 10px;              /* Bildabstand */
     }
 
-    /* 2. Den Wrapper vom starren 4:3-Format befreien */
     .gallery-page.jomag-grid .jomag-img-wrapper {
-        aspect-ratio: auto;            /* Hebt das starre Gitter auf */
+        aspect-ratio: auto;            /* Hebt das starre 4:3 Gitter auf */
         height: auto;                  /* Die Höhe passt sich flexibel dem Bild an */
         display: block;                /* Flexbox wird nicht mehr zum Zentrieren gebraucht */
         background-color: transparent; /* Kein Kasten im Hintergrund mehr nötig */
