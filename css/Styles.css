@@ -804,21 +804,35 @@ h1.main-title {
 @media (max-width: 768px) {
     .hamburger { display: block; }
 
-    .nav-menu {
+.nav-menu {
         position: fixed;
-        left: -100%;
+        left: auto;               /* Hebt die linke Bindung auf */
+        right: -100%;             /* Wartet rechts außerhalb des Bildschirms */
         top: 60px;
         background-color: #fff;
         width: 100%;
         height: auto;
-        padding-bottom: 20px;
+        padding-bottom: 0;
         transition: 0.3s;
         box-shadow: 0 10px 10px rgba(0,0,0,0.1);
     }
 
-    .nav-menu.active { left: 0; }
+    .nav-menu.active { 
+        right: 0;                 /* Fährt nach links rein, bis es bündig abschließt */
+    }
+    
     .nav-list { flex-direction: column; text-align: center; }
-    .nav-item { margin: 1.5rem 0; }
+    .nav-item { 
+        margin: 0;                   /* Abstand wird jetzt sauber über Padding geregelt */
+        padding: 1.2rem 0;           /* Klickbereich oben/unten für die Finger */
+        width: 80%;                  /* Der Strich geht nicht ganz bis zum Rand (sieht eleganter aus) */
+        margin-left: auto;           /* Zentriert das Element, da die Breite auf 80% steht */
+        margin-right: auto;
+    }
+
+    .nav-item:not(:last-child) {
+        border-bottom: 1px solid #e5e5e5; /* Ein sehr zartes, dezentes Hellgrau */
+    }
 
     .hamburger.active .bar:nth-child(2) { opacity: 0; }
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
