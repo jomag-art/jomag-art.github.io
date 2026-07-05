@@ -861,7 +861,9 @@ h1.main-title {
         width: 90vw;                
         object-fit: contain;        
         margin-top: 0;              /* Setzt eventuelle alte Margins zurück */
-        transition: opacity 0.25s ease-in-out;
+        
+        /* NEU: Optimierte Übergangszeit für den Instagram-Slide */
+        transition: transform 0.18s ease-in-out, opacity 0.18s ease-in-out;
     }
 
     .lightbox .prev, 
@@ -889,6 +891,29 @@ h1.main-title {
         max-width: 85%; 
         font-size: 0.85rem;
     }
+}
+
+/* INSTAGRAM SLIDE ANIMATIONS-ZUSTÄNDE (Außerhalb der Media-Query platzieren) */
+.slide-out-left {
+    transform: translateX(-100%) scale(0.9);
+    opacity: 0;
+}
+
+.slide-out-right {
+    transform: translateX(100%) scale(0.9);
+    opacity: 0;
+}
+
+.slide-in-right {
+    transform: translateX(100%) scale(0.9);
+    opacity: 0;
+    transition: none !important; /* Setzt das neue Bild unbemerkt rechts an den Start */
+}
+
+.slide-in-left {
+    transform: translateX(-100%) scale(0.9);
+    opacity: 0;
+    transition: none !important; /* Setzt das neue Bild unbemerkt links an den Start */
 }
 
 /*============================================================================

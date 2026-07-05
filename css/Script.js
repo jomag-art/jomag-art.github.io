@@ -110,20 +110,36 @@ lightbox.addEventListener('touchend', (e) => {
 function handleSwipeGesture() {
     const swipeThreshold = 50; 
     const lightboxImg = document.querySelector('.lightbox-content');
+    if (!lightboxImg) return;
     
     if (Math.abs(touchstartX - touchendX) > swipeThreshold) {
-        if (lightboxImg) lightboxImg.style.opacity = '0';
+        // Richtung bestimmen: nach links oder nach rechts gewischt?
+        const isLeftSwipe = touchstartX - touchendX > swipeThreshold;
         
+        // 1. Altes Bild rausfliegen lassen
+        lightboxImg.classList.add(isLeftSwipe ? 'slide-out-left' : 'slide-out-right');
+        
+        // 2. Nach der Animation (180ms) das Bild wechseln und neu reinfliegen lassen
         setTimeout(() => {
-            if (touchstartX - touchendX > swipeThreshold) {
+            if (isLeftSwipe) {
                 currentIndex = (currentIndex + 1) % images.length;
             } else {
                 currentIndex = (currentIndex - 1 + images.length) % images.length;
             }
             
+            // Bild wechseln
             updateLightbox();
-            if (lightboxImg) lightboxImg.style.opacity = '1';
-        }, 200);
+            
+            // Alte Animationsklassen entfernen und Einflug-Klasse setzen
+            lightboxImg.className = 'lightbox-content'; 
+            lightboxImg.classList.add(isLeftSwipe ? 'slide-in-right' : 'slide-in-left');
+            
+            // Nach dem Einflug (180ms) die Einflug-Klasse für den nächsten Swipe säubern
+            setTimeout(() => {
+                lightboxImg.classList.remove('slide-in-right', 'slide-in-left');
+            }, 180);
+            
+        }, 180);
     }
 }
 
