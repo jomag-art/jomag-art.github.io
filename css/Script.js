@@ -95,34 +95,35 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// --- 5. SWIPE-GESTE (WISCHEN) FÜR DIE MOBILE LIGHTBOX ---
 let touchstartX = 0;
 let touchendX = 0;
 
-// Sobald der Finger das Display berührt, merken wir uns die X-Position
 lightbox.addEventListener('touchstart', (e) => {
-    touchstartX = e.changedTouches[0].screenX;
+    touchstartX = e.changedTouches[0].clientX;
 }, { passive: true });
 
-// Sobald der Finger das Display verlässt, berechnen wir die Wischrichtung
 lightbox.addEventListener('touchend', (e) => {
-    touchendX = e.changedTouches[0].screenX;
+    touchendX = e.changedTouches[0].clientX;
     handleSwipeGesture();
 }, { passive: true });
 
 function handleSwipeGesture() {
-    const swipeThreshold = 60; // Mindestdistanz in Pixeln, damit es als Wisch gewertet wird
+    const swipeThreshold = 50; 
+    const lightboxImg = document.querySelector('.lightbox-content');
     
-    // Nach LINKS gewischt -> Nächstes Bild anzeigen
-    if (touchstartX - touchendX > swipeThreshold) {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateLightbox();
-    }
-    
-    // Nach RECHTS gewischt -> Vorheriges Bild anzeigen
-    if (touchendX - touchstartX > swipeThreshold) {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateLightbox();
+    if (Math.abs(touchstartX - touchendX) > swipeThreshold) {
+        if (lightboxImg) lightboxImg.style.opacity = '0';
+        
+        setTimeout(() => {
+            if (touchstartX - touchendX > swipeThreshold) {
+                currentIndex = (currentIndex + 1) % images.length;
+            } else {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            }
+            
+            updateLightbox();
+            if (lightboxImg) lightboxImg.style.opacity = '1';
+        }, 200);
     }
 }
 

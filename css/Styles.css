@@ -861,6 +861,7 @@ h1.main-title {
         width: 90vw;                
         object-fit: contain;        
         margin-top: 0;              /* Setzt eventuelle alte Margins zurück */
+        transition: opacity 0.25s ease-in-out;
     }
 
     .lightbox .prev, 
