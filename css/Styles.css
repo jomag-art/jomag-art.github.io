@@ -893,7 +893,6 @@ h1.main-title {
     }
 }
 
-/* INSTAGRAM SLIDE ANIMATIONS-ZUSTÄNDE (Außerhalb der Media-Query platzieren) */
 .slide-out-left {
     transform: translateX(-100%) scale(0.9);
     opacity: 0;
