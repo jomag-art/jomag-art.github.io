@@ -896,12 +896,12 @@ h1.main-title {
 /* --- ANIMATIONSKLASSEN FÜR DEN SWIPE (GLOBAL) --- */
 .slide-out-right {
     transform: translateX(100%) scale(0.9);
-    opacity: 0.3; 
+    opacity: 0; 
 }
 
 .slide-out-left {
     transform: translateX(-100%) scale(0.9);
-    opacity: 0.3; 
+    opacity: 0; 
 }
 
 .slide-in-right {
