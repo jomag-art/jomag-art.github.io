@@ -128,21 +128,18 @@ function handleSwipeGesture() {
         const imgPreloader = new Image();
         imgPreloader.src = nextImageUrl;
 
-        // 2. Genau passend zur CSS-Transition (120ms) wechseln wir das Bild
         setTimeout(() => {
-            // Bild wechseln (nutzt jetzt die bereits vorgeladene URL)
             updateLightbox();
             
-            // Alte Animationsklassen entfernen und Einflug-Klasse setzen
             lightboxImg.className = 'lightbox-content'; 
             lightboxImg.classList.add(isLeftSwipe ? 'slide-in-right' : 'slide-in-left');
             
-            // 3. Nach dem Einflug (nochmal 120ms) die Klassen säubern
+            // 3. Nach dem Einflug (nochmal 100ms) die Klassen säubern
             setTimeout(() => {
                 lightboxImg.classList.remove('slide-in-right', 'slide-in-left');
-            }, 120);
+            }, 100);
             
-        }, 120); // Von 180 auf 120 reduziert, passend zu deinem CSS!
+        }, 100);
     }
 }
 

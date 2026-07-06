@@ -833,7 +833,7 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   OPTIMIERTE LIGHTBOX NAVIGATION FÜR MOBILE (PREZISE PLATZIERUNG)
+   OPTIMIERTE LIGHTBOX NAVIGATION FÜR MOBILE (PRÄZISE PLATZIERUNG)
    ========================================================================== */
 @media (max-width: 900px) { 
     
@@ -841,8 +841,8 @@ h1.main-title {
     .lightbox .close-btn {
         top: 15px;                  
         right: 15px;          
-        font-size: 28px;            /* Schöne, dezente Größe */
-        padding: 30px;              /* Riesiges unsichtbares Berührfeld für den Daumen */
+        font-size: 28px;            
+        padding: 30px;              
         background-color: transparent; 
         width: auto;                
         height: auto;         
@@ -857,13 +857,13 @@ h1.main-title {
 
     .lightbox .lightbox-content {
         padding-top: 60px;          /* Schiebt das Bild sicher nach unten, weg vom Kreuz! */
-        max-height: 65vh;           /* Kürzt die maximale Bildhöhe, um unten Platz für Text & Pfeile zu machen */
+        max-height: 65vh;           /* Kürzt die maximale Bildhöhe */
         width: 90vw;                
         object-fit: contain;        
         margin-top: 0;              /* Setzt eventuelle alte Margins zurück */
         
-        /* NEU: Optimierte Übergangszeit für den Instagram-Slide */
-        transition: transform 0.18s ease-in-out, opacity 0.18s ease-in-out;
+        /* HIER REINGESETZT: Knackige 0.1s für mobile Geräte, keine Konflikte mehr! */
+        transition: transform 0.1s ease-out, opacity 0.1s ease-out;
     }
 
     .lightbox .prev, 
@@ -871,7 +871,7 @@ h1.main-title {
         top: auto;
         bottom: 30px;               /* Abstand vom unteren Bildschirmrand */
         transform: none;
-        font-size: 2.2rem;            /* Pfeile Größe */
+        font-size: 2.2rem;          /* Pfeile Größe */
         padding: 0px;
         background-color: transparent;        
         display: flex;
@@ -881,42 +881,39 @@ h1.main-title {
         z-index: 3100;
     }
 
-    .lightbox .prev { left: 25%; }  /* Etwas weiter auseinandergezogen */
+    .lightbox .prev { left: 25%; }  
     .lightbox .next { right: 25%; }
 
-    /* 4. DER TEXT (CAPTION): Sitzt jetzt sicher ÜBER den Pfeilen */
+    /* DER TEXT (CAPTION) */
     #caption { 
         margin-top: 15px;
-        margin-bottom: 115px;        /* Drückt den Text nach oben, weg von den Pfeilen */
+        margin-bottom: 115px;        /* Drückt den Text nach oben */
         max-width: 85%; 
         font-size: 0.85rem;
     }
 }
 
-.slide-out-left {
-    transform: translateX(-100%) scale(0.9);
-    opacity: 0;
-}
-
+/* --- ANIMATIONSKLASSEN FÜR DEN SWIPE (GLOBAL) --- */
 .slide-out-right {
     transform: translateX(100%) scale(0.9);
-    opacity: 0;
+    opacity: 0.3; 
+}
+
+.slide-out-left {
+    transform: translateX(-100%) scale(0.9);
+    opacity: 0.3; 
 }
 
 .slide-in-right {
     transform: translateX(100%) scale(0.9);
     opacity: 0;
-    transition-duration: 0s; /* Sagt dem Browser: Keine Zeit vergeuden, sofort dorthin springen */
+    transition-duration: 0s; 
 }
 
 .slide-in-left {
     transform: translateX(-100%) scale(0.9);
     opacity: 0;
-    transition-duration: 0s; /* Sagt dem Browser: Keine Zeit vergeuden, sofort dorthin springen */
-}
-
-.lightbox .lightbox-content {
-    transition: transform 0.12s ease-out, opacity 0.12s ease-out;
+    transition-duration: 0s; 
 }
 
 /*============================================================================
