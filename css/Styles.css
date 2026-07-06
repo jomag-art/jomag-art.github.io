@@ -309,8 +309,8 @@ h1.main-title {
 
 /* Verkleinert gezielt nur Bilder mit dem Label "miniatur-ansicht" */
 .gallery-page .jomag-img-wrapper.miniatur-ansicht img {
-    max-width: 65%; 
-    max-height: 65%;
+    max-width: 80%; 
+    max-height: 80%;
 }
 
 .gallery-page .jomag-name {
