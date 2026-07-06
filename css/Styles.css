@@ -1017,3 +1017,90 @@ h1.main-title {
     border-color: var(--primary-color, #333);
     transform: translateX(3px); /* Bewegt den Pfeil beim Hovern minimal nach rechts (Richtung Daumen) */
 }
+
+/* ==========================================================================
+   12. VITA / CV STRUKTUR (REINES TEXT-GITTER)
+   ========================================================================== */
+
+.vita-container {
+    max-width: 800px;       
+    margin: 0 auto 60px auto; 
+    padding: 0 20px;         
+}
+
+.vita-header {
+    display: block;           
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eeeeee; 
+    padding-bottom: 20px;
+}
+
+.vita-section {
+    margin-bottom: 50px;    
+}
+
+.section-title {
+    font-size: 1.20rem;     
+    font-weight: 400;       
+    color: #222222;
+    border-bottom: 1px solid #eeeeee; 
+    padding-bottom: 10px;   
+    margin-bottom: 25px;    
+    letter-spacing: 0.05em;
+}
+
+/* Das tabellarische Gitter für Desktop */
+.vita-grid {
+    display: grid;          
+    grid-template-columns: 150px 1fr; 
+    row-gap: 12px;
+    column-gap: 20px;
+    margin-bottom: 30px;
+}
+
+.vita-year {
+    font-weight: 400;       
+    color: #555555;
+}
+
+.vita-content {
+    font-weight: 300;       
+}
+
+.vita-content em {
+    color: #555555; 
+    font-weight: 200; 
+}
+
+/* Listen innerhalb der Ausstellungsjahre */
+.vita-list {
+    list-style: none;    
+    padding: 0;        
+    margin: 0;
+}
+
+.vita-list li {
+    margin-bottom: 8px;  
+    font-weight: 300;     
+}
+
+.vita-list li:last-child {
+    margin-bottom: 0;     
+}
+
+/* --- MOBILE MEDIENABFRAGE FÜR DIE VITA --- */
+@media (max-width: 768px) {
+    .vita-grid {
+        grid-template-columns: 1fr; /* Bricht auf Handys sauber untereinander um */
+        row-gap: 18px;              
+    }
+
+    .vita-year {
+        margin-bottom: 2px;
+        font-weight: 500; /* Jahr auf Smartphones minimal deutlicher abheben */
+    }
+
+    .vita-content {
+        margin-bottom: 15px;        
+    }
+}
