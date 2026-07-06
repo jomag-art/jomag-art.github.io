@@ -249,8 +249,8 @@ h1.main-title {
 }
 
 .jomag-img-wrapper img {
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; 
@@ -301,8 +301,8 @@ h1.main-title {
 
 .gallery-page .jomag-img-wrapper img {
     object-fit: contain;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
     max-width: 100%;
     max-height: 100%;
 }
