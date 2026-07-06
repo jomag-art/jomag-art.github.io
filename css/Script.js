@@ -113,33 +113,36 @@ function handleSwipeGesture() {
     if (!lightboxImg) return;
     
     if (Math.abs(touchstartX - touchendX) > swipeThreshold) {
-        // Richtung bestimmen: nach links oder nach rechts gewischt?
         const isLeftSwipe = touchstartX - touchendX > swipeThreshold;
         
-        // 1. Altes Bild rausfliegen lassen
         lightboxImg.classList.add(isLeftSwipe ? 'slide-out-left' : 'slide-out-right');
         
-        // 2. Nach der Animation (180ms) das Bild wechseln und neu reinfliegen lassen
+        if (isLeftSwipe) {
+            currentIndex = (currentIndex + 1) % images.length;
+        } else {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+        }
+
+        // damit der Browser es schon im Cache bereithält, während das alte Bild fliegt.
+        const nextImageUrl = images[currentIndex].src;
+        const imgPreloader = new Image();
+        imgPreloader.src = nextImageUrl;
+
+        // 2. Genau passend zur CSS-Transition (120ms) wechseln wir das Bild
         setTimeout(() => {
-            if (isLeftSwipe) {
-                currentIndex = (currentIndex + 1) % images.length;
-            } else {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-            }
-            
-            // Bild wechseln
+            // Bild wechseln (nutzt jetzt die bereits vorgeladene URL)
             updateLightbox();
             
             // Alte Animationsklassen entfernen und Einflug-Klasse setzen
             lightboxImg.className = 'lightbox-content'; 
             lightboxImg.classList.add(isLeftSwipe ? 'slide-in-right' : 'slide-in-left');
             
-            // Nach dem Einflug (180ms) die Einflug-Klasse für den nächsten Swipe säubern
+            // 3. Nach dem Einflug (nochmal 120ms) die Klassen säubern
             setTimeout(() => {
                 lightboxImg.classList.remove('slide-in-right', 'slide-in-left');
-            }, 180);
+            }, 120);
             
-        }, 180);
+        }, 120); // Von 180 auf 120 reduziert, passend zu deinem CSS!
     }
 }
 
