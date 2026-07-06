@@ -690,7 +690,7 @@ h1.main-title {
 }
 
 /* Allgemeines Mobile Gitter (768px & kleiner) */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     /* Buttons */
     .bottom-nav .btn-group .contact-btn {
         min-width: 135px;    
