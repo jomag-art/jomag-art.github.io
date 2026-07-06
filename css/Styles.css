@@ -906,17 +906,17 @@ h1.main-title {
 .slide-in-right {
     transform: translateX(100%) scale(0.9);
     opacity: 0;
-    transition: none !important; /* Setzt das neue Bild unbemerkt rechts an den Start */
+    transition-duration: 0s; /* Sagt dem Browser: Keine Zeit vergeuden, sofort dorthin springen */
 }
 
 .slide-in-left {
     transform: translateX(-100%) scale(0.9);
     opacity: 0;
-    transition: none !important; /* Setzt das neue Bild unbemerkt links an den Start */
+    transition-duration: 0s; /* Sagt dem Browser: Keine Zeit vergeuden, sofort dorthin springen */
 }
 
 .lightbox .lightbox-content {
-    transition: transform 0.12s ease-out, opacity 0.12s ease-out !important; /* Erhöht das Tempo beim Wischen */
+    transition: transform 0.12s ease-out, opacity 0.12s ease-out;
 }
 
 /*============================================================================
