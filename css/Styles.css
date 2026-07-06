@@ -118,6 +118,7 @@ h1.main-title {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
+    white-space: nowrap;
 }
 
 .nav-list {
