@@ -307,18 +307,18 @@ h1.main-title {
     max-height: 100%;
 }
 
-/* Standard für alle (und PC): Miniatur-Ansicht mit 80% */
-.gallery-page .jomag-img-wrapper.miniatur-ansicht img {
-    max-width: 80%; 
-    max-height: 80%;
-}
-
 /* Ausnahme nur für Handys (Bildschirme bis maximal 767px Breite) */
 @media (max-width: 767px) {
     .gallery-page .jomag-img-wrapper.miniatur-ansicht img {
         max-width: 100%;
         max-height: 100%;
     }
+}
+
+/* Standard für alle (und PC): Miniatur-Ansicht mit 80% */
+.gallery-page .jomag-img-wrapper.miniatur-ansicht img {
+    max-width: 80%; 
+    max-height: 80%;
 }
 
 .gallery-page .jomag-name {
