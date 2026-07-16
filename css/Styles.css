@@ -201,6 +201,13 @@ h1.main-title {
    ========================================================================== */
 .welcome-image-container { margin-top: 30px; text-align: center; }
 
+/* Link-Einstellungen für das Startbild */
+.welcome-image-link {
+    display: block;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Verhindert das blaue Aufblitzen beim Tippen auf dem Handy */
+}
+
 .welcome-img {
     height: 600px;
     display: block;
@@ -209,7 +216,7 @@ h1.main-title {
     left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
-    object-position: 27% center;
+    object-position: 27% center; /* Dein perfekt eingestellter Wert */
     border-radius: 0px;
 }
 
@@ -217,6 +224,11 @@ h1.main-title {
 @media (max-width: 767px) {
     .welcome-img {
         height: 520px; 
+    }
+    
+    /* Verhindert ungewolltes Auslösen des Links beim Scrollen auf Touch-Geräten */
+    .welcome-image-link {
+        touch-action: pan-y; 
     }
 }
 
