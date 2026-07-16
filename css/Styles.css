@@ -188,15 +188,24 @@ h1.main-title {
    ========================================================================== */
 .welcome-image-container { margin-top: 30px; text-align: center; }
 
-.welcome-bg-parallax {
-    height: 550px; width: 100vw;
-    position: fixed; top: 145px; left: 0; z-index: -1;
-    background-image: url("../images/thomas-prautsch-atelier-pano.webp");
-    background-size: cover;
-    background-position: 33% center; 
+.welcome-img {
+    height: 600px;
+  display: block;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: 33% center;
+  border-radius: 0px;
 }
 
-.parallax-spacer { height: 500px; width: 100%; pointer-events: none; }
+/* Perfekte Höhe für Handys (Bildschirme bis 767px Breite) */
+@media (max-width: 767px) {
+    .welcome-img {
+        height: 380px; /* Macht das Bild auf dem Handy kompakter und eleganter */
+    }
+}
 
 .category-grid {
     display: grid;
