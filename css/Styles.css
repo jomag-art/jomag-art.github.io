@@ -966,13 +966,16 @@ h1.main-title {
 
 /* --- B. MOBILE GERÄTE ALLGEMEIN (bis 768px Breite) --- */
 @media (max-width: 768px) {
-    /* Galerie Mobile */
-    .gallery-page.jomag-grid {
+    /* Galerie Mobile: Überschreibt die Desktop-Spalten durch exakte Selektoren-Spezifität */
+    .gallery-page.jomag-grid,
+    .gallery-page.gallery-one-column,
+    .gallery-page.gallery-two-columns,
+    .gallery-page.gallery-three-columns {
         grid-template-columns: 1fr; 
-        row-gap: 10px;              
+        row-gap: 20px; /* Eleganter Abstand zwischen den Bildern auf dem Handy */              
     }
 
-    .gallery-page.jomag-grid .jomag-img-wrapper {
+    .gallery-page .jomag-img-wrapper {
         aspect-ratio: auto;            
         height: auto;                  
         display: block;                
@@ -980,7 +983,7 @@ h1.main-title {
         margin-bottom: 0px;
     }
 
-    .gallery-page.jomag-grid .jomag-img-wrapper img {
+    .gallery-page .jomag-img-wrapper img {
         width: 100%;          
         height: auto;         
         max-width: 100%;
