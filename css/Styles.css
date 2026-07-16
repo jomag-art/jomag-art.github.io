@@ -209,7 +209,7 @@ h1.main-title {
     left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
-    object-position: 35% center;
+    object-position: 27% center;
     border-radius: 0px;
 }
 
@@ -972,7 +972,7 @@ h1.main-title {
     .gallery-page.gallery-two-columns,
     .gallery-page.gallery-three-columns {
         grid-template-columns: 1fr; 
-        row-gap: 20px; /* Eleganter Abstand zwischen den Bildern auf dem Handy */              
+        row-gap: 15px; /* Eleganter Abstand zwischen den Bildern auf dem Handy */              
     }
 
     .gallery-page .jomag-img-wrapper {
