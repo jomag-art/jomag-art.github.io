@@ -21,9 +21,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ==========================================================================
-   2. BASICS & TYPOGRAFIE
-   ========================================================================== */
 body {
     font-family: "Roboto", 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-color);
@@ -31,8 +28,12 @@ body {
     font-weight: 200;
     font-variation-settings: "wdth" 75;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* Der Airbag gegen ungewolltes horizontales Scrollen auf Handys */
 }
 
+/* ==========================================================================
+   2. BASICS & TYPOGRAFIE
+   ========================================================================== */
 h1, h2, h3 {
     color: var(--primary-color);
     margin-bottom: 1.5rem;
@@ -48,18 +49,23 @@ h1, h2, h3 {
     z-index: 1;
 }
 
+/* Responsive Anpassung für Sektionsabstände auf Mobilgeräten */
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 5% 40px;
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Schmaler Container für perfekte Text-Lesbarkeit */
 .container-narrow {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Optional: Breiter Container für ausdrucksstarke Galerien */
 .container-wide {
     max-width: 1400px;
     margin: 0 auto;
@@ -97,6 +103,13 @@ h1.main-title {
     text-align: left;
 }
 
+/* Auf mobilen Geräten den linken Margin des Haupttitels anpassen */
+@media (max-width: 768px) {
+    h1.main-title {
+        margin: 40px 0 25px 0;
+    }
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px; height: 1px;
@@ -111,6 +124,7 @@ h1.main-title {
 .header {
     background-color: var(--nav-bg);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid #ddd;
     position: fixed; 
     width: 100%;
@@ -153,7 +167,6 @@ h1.main-title {
     cursor: pointer;
 }
 
-/* Hover-Logik optimiert */
 .nav-link::before, .nav-link::after {
     content: "";
     position: absolute;
@@ -190,26 +203,27 @@ h1.main-title {
 
 .welcome-img {
     height: 600px;
-  display: block;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: cover;
-  object-position: 33% center;
-  border-radius: 0px;
+    display: block;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: 33% center;
+    border-radius: 0px;
 }
 
 /* Perfekte Höhe für Handys (Bildschirme bis 767px Breite) */
 @media (max-width: 767px) {
     .welcome-img {
-        height: 380px; /* Macht das Bild auf dem Handy kompakter und eleganter */
+        height: 380px; 
     }
 }
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* KORREKTUR: min(100%, 300px) verhindert das Rausdrücken auf kleinen Handys */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 20px;
 }
 
@@ -244,13 +258,14 @@ h1.main-title {
 .category-item:hover .category-overlay { background-color: rgba(0, 0, 0, 0.6); }
 
 /* ==========================================================================
-   5. GLOBAL JOMAG-GRID SYSTEM (Hauptseite & Unterseiten kombiniert)
+   5. GLOBAL JOMAG-GRID SYSTEM
    ========================================================================== */
 
-/* --- 5.1 GEMEINSAME BASIS (Für alle Seiten) --- */
+/* --- 5.1 GEMEINSAME BASIS --- */
 .jomag-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* KORREKTUR: min(100%, 300px) sichert auch das Haupt-Galeriegitter auf Handys ab */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     column-gap: 35px; 
     row-gap: 15px;    
 }
@@ -274,7 +289,6 @@ h1.main-title {
     -webkit-backface-visibility: hidden;
 }
 
-/* Textelemente */
 .jomag-info { padding: 0; }
 
 .jomag-category {
@@ -293,9 +307,7 @@ h1.main-title {
     color: var(--primary-color);
 }
 
-
 /* --- 5.2 HAUPTSEITE SPEZIFISCH --- */
-/* Nur auf der Hauptseite sind die Bilder quadratisch mit Zoom-Effekt */
 .jomag-grid:not(.gallery-page) .jomag-img-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -309,16 +321,14 @@ h1.main-title {
     transform: scale(1.06);
 }
 
-
 /* --- 5.3 UNTERSEITEN (GALERIEN) BASIS-STYLING --- */
-/* Das einheitliche, saubere Fundament für ALLE Galerieseiten */
 .gallery-page .jomag-img-wrapper {
     width: 100%;
     height: auto;
-    aspect-ratio: auto;           /* Flexibel für Hoch- und Querformate */
-    background-color: transparent; /* Kein störender grauer Kasten */
+    aspect-ratio: auto;
+    background-color: transparent;
     margin-bottom: 0;
-    border-radius: 0;              /* Messerscharfe, spitze Bildecken */
+    border-radius: 0;
     display: flex;
 }
 
@@ -335,13 +345,11 @@ h1.main-title {
 }
 
 /* --- 5.4 SPEZIALFALL: MINIATUR-ANSICHT --- */
-/* Standard für alle (PC): Miniatur-Ansicht mit 80% */
 .gallery-page .jomag-img-wrapper.miniatur-ansicht img {
     max-width: 80%; 
     max-height: 80%;
 }
 
-/* Ausnahme nur für Handys (Bildschirme bis max. 767px Breite) */
 @media (max-width: 767px) {
     .gallery-page .jomag-img-wrapper.miniatur-ansicht img {
         max-width: 100%;
@@ -349,10 +357,7 @@ h1.main-title {
     }
 }
 
-
-/* --- 5.5 DIE SPALTEN-LAYOUTS (Dein Baukasten) --- */
-
-/* Variante A: Einspaltiges Layout */
+/* --- 5.5 DIE SPALTEN-LAYOUTS --- */
 .gallery-page.gallery-one-column {
     display: grid;
     grid-template-columns: 1fr;
@@ -366,7 +371,6 @@ h1.main-title {
     align-items: center;
 }
 
-/* Variante B: Zweispaltiges Layout */
 .gallery-page.gallery-two-columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -381,7 +385,6 @@ h1.main-title {
     align-items: flex-start;
 }
 
-/* Variante C: Dreispaltiges Layout */
 .gallery-page.gallery-three-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -397,31 +400,27 @@ h1.main-title {
     align-items: center;
 }
 
-/* LIMITED HIGH Begrenzt Hochformate auf eine harmonische maximale Höhe */
 .limit-height .gallery-img {
-    max-height: 320px; /* Hier wieder auf harmonische 550px gesetzt – bei Bedarf anpassen */
-    width: auto;       /* Verhindert das unnatürliche Breitziehen */
+    max-height: 320px; 
+    width: auto;       
     object-fit: contain;
-    margin: 0 auto;    /* Zentriert das Bild im Wrapper, falls es schmaler wird */
+    margin: 0 auto;    
 }
 
-/* Spezial-Upgrade: Wenn einspaltig, darf das Bild großzügiger wachsen */
 .gallery-one-column.limit-height .gallery-img {
     max-height: 70vh;
 }
 
-/* FESTES 4:3-FORMAT für alle Bilderrahmen */
 .ratio-4-3 .jomag-img-wrapper {
     aspect-ratio: 4 / 3;
     width: 100%;
-    background-color: var(--bg-color); /* Gibt leeren Flächen einen dezenten Hintergrund */
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-/* Wie soll sich das Kunstwerk im 4:3-Rahmen verhalten? */
 .ratio-4-3 .gallery-img {
     width: 100%;
     height: 100%;
@@ -433,7 +432,7 @@ h1.main-title {
    ========================================================================== */
 .texte-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -608,6 +607,10 @@ h1.main-title {
     transform: translateY(-2px); 
 }
 
+.bottom-nav .btn-group .contact-btn {
+    min-width: 155px; 
+}
+
 .bottom-nav .btn-group .contact-btn:first-child { overflow: hidden; }
 
 .bottom-nav .btn-group .contact-btn:first-child:hover {
@@ -621,63 +624,6 @@ h1.main-title {
     display: none !important;
 }
 
-/* ==========================================================================
-   8. MEDIA QUERIES (KOMBINIERT FÜR GALERIE & TEXTE)
-   ========================================================================== */
-@media (max-width: 768px) {
-    /* Galerie Mobile */
-    .gallery-page.jomag-grid {
-        grid-template-columns: 1fr; 
-        row-gap: 10px;              
-    }
-
-    .gallery-page.jomag-grid .jomag-img-wrapper {
-        aspect-ratio: auto;            
-        height: auto;                  
-        display: block;                
-        background-color: transparent; 
-        margin-bottom: 0px;
-    }
-
-    .gallery-page.jomag-grid .jomag-img-wrapper img {
-        width: 100%;          
-        height: auto;         
-        max-width: 100%;
-        max-height: none;     
-        object-fit: contain;     
-    }
-
-    /* Accordion & Gitter Mobile */
-    .accordion-group {
-        flex-direction: column;
-    }
-    
-    .ausstellungen-accordion {
-        flex: 1 1 100%;
-        width: 100%;
-    }
-    
-    .ausstellungen-accordion[open] .accordion-content {
-        width: 100%;
-    }
-    
-    .ausstellungen-accordion:nth-child(2)[open] .accordion-content {
-        transform: none;
-    }
-    
-    .accordion-content {
-        grid-column: 1; 
-        grid-row: auto;
-    }
-}
-
-/* ==========================================================================
-   8. UNTERE NAVIGATION (BUTTON-BREITEN)
-   ========================================================================== */
-.bottom-nav .btn-group .contact-btn {
-    min-width: 155px; /* Bringt alle Buttons auf dem PC auf die gleiche, edle Breite */
-}
-
 .bottom-nav .btn-group {
     display: flex;
     flex-wrap: wrap;       
@@ -687,7 +633,7 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   9. LIGHTBOX BASE STYLES (PC-ANSICHT)
+   8. LIGHTBOX BASE STYLES (PC-ANSICHT)
    ========================================================================== */
 .lightbox {
     display: none;
@@ -716,7 +662,6 @@ h1.main-title {
     to { transform: scale(1); opacity: 1; }
 }
 
-/* Lightbox Controls */
 .close, .close-btn {
     position: absolute;
     top: 20px; right: 30px;
@@ -764,10 +709,10 @@ h1.main-title {
 }
 
 #caption {
-    margin-top: 25px;                                                   
-    color: #2b2b2b;                                                  
+    margin-top: 25px;                                                                   
+    color: #2b2b2b;                                                                   
     font-size: 0.90rem;          
-    font-weight: 100;                                                   
+    font-weight: 100;                                                                   
     letter-spacing: 0.05em;            
     text-align: center;          
     max-width: 80%;
@@ -777,7 +722,7 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   10. FOOTER
+   9. FOOTER
    ========================================================================== */
 .footer {
     text-align: center;
@@ -789,130 +734,7 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   11. GLOBAL RESPONSIVE MEDIA QUERIES
-   ========================================================================== */
-
-/* Spezifisch für kleine Smartphones (Lightbox) */
-@media (max-width: 600px) {
-    .prev, .next { font-size: 35px; padding: 10px; }
-    .close-btn { right: 20px; top: 10px; font-size: 35px; }
-    .lightbox-content { height: 70vh; }
-}
-
-/* Allgemeines Mobile Gitter (768px & kleiner) */
-@media (max-width: 900px) {
-    /* Buttons */
-    .bottom-nav .btn-group .contact-btn {
-        min-width: 135px;    
-        font-size: 0.85rem;  
-        padding: 0 10px;     
-    }
-
-    /* Navigation / Hamburger-Menü */
-    .hamburger { display: block; }
-
-    .nav-menu {
-        position: fixed;
-        left: auto;              
-        right: -100%;             
-        top: 60px;
-        background-color: var(--bg-color);
-        width: 100%;
-        height: auto;
-        padding-bottom: 0;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-menu.active { right: 0; }
-    
-    .nav-list { flex-direction: column; text-align: center; }
-    
-    .nav-item { 
-        margin: 0 auto;                  
-        padding: 1.2rem 0;           
-        width: 80%;                  
-    }
-
-    .nav-item:not(:last-child) {
-        border-bottom: 1px solid #e5e5e5; 
-    }
-
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-}
-
-/* ==========================================================================
-   11. OPTIMIERTE LIGHTBOX NAVIGATION FÜR MOBILE (PRÄZISE PLATZIERUNG)
-   ========================================================================== */
-@media (max-width: 900px) { 
-    
-    .lightbox .close,
-    .lightbox .close-btn {
-        top: 15px;                  
-        right: 15px;          
-        font-size: 28px;            
-        padding: 30px;              
-        background-color: transparent; 
-        width: auto;                
-        height: auto;         
-        display: flex;              
-        align-items: center;   
-        justify-content: center; 
-        color: var(--primary-color);            
-        line-height: 0;        
-        z-index: 3100;              
-        transform: none;            
-    }
-
-    .lightbox .lightbox-content {
-        padding-top: 60px;          /* Schiebt das Bild sicher nach unten, weg vom Kreuz! */
-        max-height: 65vh;           /* Kürzt die maximale Bildhöhe */
-        width: 90vw;                
-        object-fit: contain;        
-        margin-top: 0;              
-        
-        /* Knackige 0.1s für mobile Geräte, keine Konflikte mehr! */
-        transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-    }
-
-    .lightbox .prev, 
-    .lightbox .next {
-        top: auto;
-        bottom: 30px;               /* Abstand vom unteren Bildschirmrand */
-        transform: none;
-        font-size: 2.2rem;          /* Pfeile Größe */
-        padding: 0px;
-        background-color: transparent;        
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary-color);
-        z-index: 3100;
-    }
-
-    .lightbox .prev { left: 25%; }  
-    .lightbox .next { right: 25%; }
-
-    /* DER TEXT (CAPTION) */
-    #caption { 
-        margin-top: 15px;
-        margin-bottom: 115px;        /* Drückt den Text nach oben */
-        max-width: 85%; 
-        font-size: 0.85rem;
-    }
-}
-
-/* --- ANIMATIONSKLASSEN FÜR DEN SWIPE (GLOBAL) --- */
-.slide-out-right { transform: translateX(100%) scale(0.9); opacity: 0; }
-.slide-out-left { transform: translateX(-100%) scale(0.9); opacity: 0; }
-.slide-in-right { transform: translateX(100%) scale(0.9); opacity: 0; transition-duration: 0s; }
-.slide-in-left { transform: translateX(-100%) scale(0.9); opacity: 0; transition-duration: 0s; }
-
-
-/* ==========================================================================
-   12. SPECIAL BUTTONS & TRENNLINIEN
+   10. SPECIAL BUTTONS & TRENNLINIEN
    ========================================================================== */
 .back-button-link {
     text-decoration: none;
@@ -920,7 +742,6 @@ h1.main-title {
     margin: 20px 0;
 }
 
-/* Datenschutz Back Button */
 .uiverse-back-button {
     box-sizing: border-box; 
     background-color: var(--bg-color);
@@ -960,12 +781,10 @@ h1.main-title {
 .uiverse-back-button:hover .green-circle { width: 182px; }
 .green-circle svg { flex-shrink: 0; }
 
-/* Trennlinien */
 #galerie { border-top: 1px solid rgba(0, 0, 0, 0.15); }
 #texte { border-top: 1px solid rgba(0, 0, 0, 0.07); }
 #kontakt { border-top: 1px solid rgba(0, 0, 0, 0.07); }
 
-/* Der Zurück-Button als feiner, eckiger Kasten */
 .back-box-btn {
     display: inline-flex;
     align-items: center;
@@ -989,9 +808,8 @@ h1.main-title {
     transform: translateX(3px); 
 }
 
-
 /* ==========================================================================
-   13. VITA / CV STRUKTUR (REINES TEXT-GITTER)
+   11. VITA / CV STRUKTUR (REINES TEXT-GITTER)
    ========================================================================== */
 .vita-container {
     max-width: 800px;       
@@ -1020,7 +838,6 @@ h1.main-title {
     letter-spacing: 0.05em;
 }
 
-/* Das tabellarische Gitter für die eigene Vita-Seite */
 .vita-grid {
     display: grid;          
     grid-template-columns: 150px 1fr; 
@@ -1045,8 +862,156 @@ h1.main-title {
 .vita-list li { margin-bottom: 8px; font-weight: 300; }
 .vita-list li:last-child { margin-bottom: 0; }
 
-/* Mobile Anpassung für die Vita */
+
+/* ==========================================================================
+   12. MEDIA QUERIES (SYSTEMATISCH SORTIERT NACH BREITE)
+   ========================================================================== */
+
+/* --- A. TABLETS & SMARTPHONES (bis 900px Breite) --- */
+@media (max-width: 900px) {
+    /* Navigation / Hamburger-Menü */
+    .hamburger { display: block; }
+
+    .nav-menu {
+        position: fixed;
+        left: auto;              
+        right: -100%;             
+        top: 60px;
+        background-color: var(--bg-color);
+        width: 100%;
+        height: auto;
+        padding-bottom: 0;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active { right: 0; }
+    
+    .nav-list { flex-direction: column; text-align: center; }
+    
+    .nav-item { 
+        margin: 0 auto;                  
+        padding: 1.2rem 0;           
+        width: 80%;                  
+    }
+
+    .nav-item:not(:last-child) {
+        border-bottom: 1px solid #e5e5e5; 
+    }
+
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Untere Buttons */
+    .bottom-nav .btn-group .contact-btn {
+        min-width: 135px;    
+        font-size: 0.85rem;  
+        padding: 0 10px;     
+    }
+
+    /* Lightbox Navigation auf Touchscreens optimiert */
+    .lightbox .close,
+    .lightbox .close-btn {
+        top: 15px;                  
+        right: 15px;          
+        font-size: 28px;            
+        padding: 30px;              
+        background-color: transparent; 
+        width: auto;                
+        height: auto;         
+        display: flex;              
+        align-items: center;   
+        justify-content: center; 
+        color: var(--primary-color);            
+        line-height: 0;        
+        z-index: 3100;              
+        transform: none;            
+    }
+
+    .lightbox .lightbox-content {
+        padding-top: 60px;          
+        max-height: 65vh;           
+        width: 90vw;                
+        object-fit: contain;        
+        margin-top: 0;              
+        transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    }
+
+    .lightbox .prev, 
+    .lightbox .next {
+        top: auto;
+        bottom: 30px;               
+        transform: none;
+        font-size: 2.2rem;          
+        padding: 0px;
+        background-color: transparent;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        z-index: 3100;
+    }
+
+    .lightbox .prev { left: 25%; }  
+    .lightbox .next { right: 25%; }
+
+    #caption { 
+        margin-top: 15px;
+        margin-bottom: 115px;        
+        max-width: 85%; 
+        font-size: 0.85rem;
+    }
+}
+
+/* --- B. MOBILE GERÄTE ALLGEMEIN (bis 768px Breite) --- */
 @media (max-width: 768px) {
+    /* Galerie Mobile */
+    .gallery-page.jomag-grid {
+        grid-template-columns: 1fr; 
+        row-gap: 10px;              
+    }
+
+    .gallery-page.jomag-grid .jomag-img-wrapper {
+        aspect-ratio: auto;            
+        height: auto;                  
+        display: block;                
+        background-color: transparent; 
+        margin-bottom: 0px;
+    }
+
+    .gallery-page.jomag-grid .jomag-img-wrapper img {
+        width: 100%;          
+        height: auto;         
+        max-width: 100%;
+        max-height: none;     
+        object-fit: contain;     
+    }
+
+    /* Accordion & Gitter Mobile */
+    .accordion-group {
+        flex-direction: column;
+    }
+    
+    .ausstellungen-accordion {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+    
+    .ausstellungen-accordion[open] .accordion-content {
+        width: 100%;
+    }
+    
+    .ausstellungen-accordion:nth-child(2)[open] .accordion-content {
+        transform: none;
+    }
+    
+    .accordion-content {
+        grid-column: 1; 
+        grid-row: auto;
+    }
+
+    /* Mobile Anpassung für die Vita-Tabelle */
     .vita-grid {
         grid-template-columns: 1fr; 
         row-gap: 18px;              
@@ -1061,3 +1026,17 @@ h1.main-title {
         margin-bottom: 15px;        
     }
 }
+
+/* --- C. SEHR KLEINE SMARTPHONES (bis 600px Breite) --- */
+@media (max-width: 600px) {
+    /* KORREKTUR: Greift jetzt garantiert fehlerfrei als letzte, spezifischste Regel */
+    .prev, .next { font-size: 35px; padding: 10px; }
+    .close-btn { right: 20px; top: 10px; font-size: 35px; }
+    .lightbox-content { height: 70vh; }
+}
+
+/* --- ANIMATIONSKLASSEN FÜR DEN SWIPE --- */
+.slide-out-right { transform: translateX(100%) scale(0.9); opacity: 0; }
+.slide-out-left { transform: translateX(-100%) scale(0.9); opacity: 0; }
+.slide-in-right { transform: translateX(100%) scale(0.9); opacity: 0; transition-duration: 0s; }
+.slide-in-left { transform: translateX(-100%) scale(0.9); opacity: 0; transition-duration: 0s; }
