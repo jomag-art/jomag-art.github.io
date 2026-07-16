@@ -1,0 +1,43 @@
+<main>
+        <section id="home" class="section bg-light">
+            <div class="container">
+                <h1 class="main-title"><span class="visually-hidden">Thomas Prautsch – </span>Malerei und Zeichnung</h1>
+            </div>
+
+            <div class="welcome-bg-parallax"></div>
+
+            <div class="parallax-spacer"></div>
+        </section>
+
+        <section id="galerie" class="section gallery-minimal">
+            <div class="container">
+                <h2 class="gallery-title">Werkgruppen</h2>
+
+/* ==========================================================================
+   4. STARTSEITE (HERO, KATEGORIEN)
+   ========================================================================== */
+.welcome-image-container { margin-top: 30px; text-align: center; }
+
+.welcome-bg-parallax {
+    height: 550px; width: 100vw;
+    position: fixed; top: 145px; left: 0; z-index: -1;
+    background-image: url("../images/thomas-prautsch-atelier-pano.webp");
+    background-size: cover;
+    background-position: 33% center; 
+}
+
+.parallax-spacer { height: 500px; width: 100%; pointer-events: none; }
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.category-item {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    border-radius: var(--main-radius);
+    display: block;
+}
