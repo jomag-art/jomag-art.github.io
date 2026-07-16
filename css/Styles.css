@@ -209,7 +209,7 @@ h1.main-title {
     left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
-    object-position: 33% center;
+    object-position: 35% center;
     border-radius: 0px;
 }
 
