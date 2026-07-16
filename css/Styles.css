@@ -237,6 +237,8 @@ h1.main-title {
 /* ==========================================================================
    5. GLOBAL JOMAG-GRID SYSTEM (Hauptseite & Unterseiten kombiniert)
    ========================================================================== */
+
+/* --- 5.1 GEMEINSAME BASIS (Für alle Seiten) --- */
 .jomag-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -248,16 +250,6 @@ h1.main-title {
     text-decoration: none;
     color: inherit;
     display: block;
-}
-
-/* Hauptseite: Quadratisch */
-.jomag-img-wrapper {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background-color: #f7f7f7;
-    margin-bottom: 25px;
-    border-radius: 4px;
 }
 
 .jomag-img-wrapper img {
@@ -273,11 +265,7 @@ h1.main-title {
     -webkit-backface-visibility: hidden;
 }
 
-.jomag-grid:not(.gallery-page) .jomag-item:hover .jomag-img-wrapper img {
-    transform: scale(1.06);
-}
-
-/* Textelemente der Hauptseite */
+/* Textelemente */
 .jomag-info { padding: 0; }
 
 .jomag-category {
@@ -296,30 +284,55 @@ h1.main-title {
     color: var(--primary-color);
 }
 
-/* Unterseiten: Die eigentlichen Galerieseiten */
-.gallery-page.jomag-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    row-gap: 30px;
-}
 
-.gallery-page .jomag-img-wrapper {
-    aspect-ratio: 4 / 3;
-    background-color: var(--bg-color);
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-}
-
-.gallery-page .jomag-img-wrapper img {
-    object-fit: contain;
+/* --- 5.2 HAUPTSEITE SPEZIFISCH --- */
+/* Nur auf der Hauptseite sind die Bilder quadratisch mit Zoom-Effekt */
+.jomag-grid:not(.gallery-page) .jomag-img-wrapper {
     width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: transparent;
+    margin-bottom: 25px;
+    border-radius: 4px;
 }
 
-/* Ausnahme nur für Handys (Bildschirme bis maximal 767px Breite) */
+.jomag-grid:not(.gallery-page) .jomag-item:hover .jomag-img-wrapper img {
+    transform: scale(1.06);
+}
+
+
+/* --- 5.3 UNTERSEITEN (GALERIEN) BASIS-STYLING --- */
+/* Das einheitliche, saubere Fundament für ALLE Galerieseiten */
+.gallery-page .jomag-img-wrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;           /* Flexibel für Hoch- und Querformate */
+    background-color: transparent; /* Kein störender grauer Kasten */
+    margin-bottom: 0;
+    border-radius: 0;              /* Messerscharfe, spitze Bildecken */
+    display: flex;
+}
+
+.gallery-page .gallery-img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    display: block;
+}
+
+.gallery-page .jomag-name {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* --- 5.4 SPEZIALFALL: MINIATUR-ANSICHT --- */
+/* Standard für alle (PC): Miniatur-Ansicht mit 80% */
+.gallery-page .jomag-img-wrapper.miniatur-ansicht img {
+    max-width: 80%; 
+    max-height: 80%;
+}
+
+/* Ausnahme nur für Handys (Bildschirme bis max. 767px Breite) */
 @media (max-width: 767px) {
     .gallery-page .jomag-img-wrapper.miniatur-ansicht img {
         max-width: 100%;
@@ -327,15 +340,83 @@ h1.main-title {
     }
 }
 
-/* Standard für alle (und PC): Miniatur-Ansicht mit 80% */
-.gallery-page .jomag-img-wrapper.miniatur-ansicht img {
-    max-width: 80%; 
-    max-height: 80%;
+
+/* --- 5.5 DIE SPALTEN-LAYOUTS (Dein Baukasten) --- */
+
+/* Variante A: Einspaltiges Layout */
+.gallery-page.gallery-one-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+.gallery-one-column .jomag-img-wrapper {
+    justify-content: center;
+    align-items: center;
 }
 
-.gallery-page .jomag-name {
-    font-size: 1rem;
-    font-weight: normal;
+/* Variante B: Zweispaltiges Layout */
+.gallery-page.gallery-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+.gallery-two-columns .jomag-img-wrapper {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* Variante C: Dreispaltiges Layout */
+.gallery-page.gallery-three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    align-items: center;
+}
+.gallery-three-columns .jomag-img-wrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+/* LIMITED HIGH Begrenzt Hochformate auf eine harmonische maximale Höhe */
+.limit-height .gallery-img {
+    max-height: 320px; /* Hier wieder auf harmonische 550px gesetzt – bei Bedarf anpassen */
+    width: auto;       /* Verhindert das unnatürliche Breitziehen */
+    object-fit: contain;
+    margin: 0 auto;    /* Zentriert das Bild im Wrapper, falls es schmaler wird */
+}
+
+/* Spezial-Upgrade: Wenn einspaltig, darf das Bild großzügiger wachsen */
+.gallery-one-column.limit-height .gallery-img {
+    max-height: 70vh;
+}
+
+/* FESTES 4:3-FORMAT für alle Bilderrahmen */
+.ratio-4-3 .jomag-img-wrapper {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    background-color: var(--bg-color); /* Gibt leeren Flächen einen dezenten Hintergrund */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Wie soll sich das Kunstwerk im 4:3-Rahmen verhalten? */
+.ratio-4-3 .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
 }
 
 /* ==========================================================================
