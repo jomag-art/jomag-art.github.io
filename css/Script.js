@@ -1,150 +1,154 @@
-// --- 1. NAVIGATION & BURGER-MENÜ ---
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (hamburger && navMenu) {
-    // Toggle-Funktion für das Burger-Menü
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-    });
+    // --- 1. NAVIGATION & BURGER-MENÜ ---
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
 
-    // Menü automatisch schließen, wenn ein Link geklickt wird
-    document.querySelectorAll(".nav-link").forEach(link => 
-        link.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        })
-    );
-}
-
-
-// --- 2. ERWEITERTE LIGHTBOX MIT SLIDER-FUNKTION ---
-const lightbox = document.getElementById("lightbox");
-const lbImg = document.getElementById("lightbox-img");
-const captionText = document.getElementById("caption");
-
-// Wir laden alle Galerie-Bilder in ein Array, um darin blättern zu können
-const images = Array.from(document.querySelectorAll(".work-item img, .category-item img, .gallery-img"));
-let currentIndex = 0;
-
-// Die Lightbox-Logik wird NUR ausgeführt, wenn die Lightbox im HTML existiert
-if (lightbox && lbImg) {
-
-    // Event-Listener für jedes Bild zum Öffnen der Lightbox
-    images.forEach((img, index) => {
-        img.addEventListener("click", (e) => {
-            if (img.closest('.category-item')) {
-                // e.preventDefault(); // Optional: Falls auf Startseite Lightbox statt Link öffnen soll
-            }
-            
-            currentIndex = index;
-            updateLightbox();
-            lightbox.style.display = "flex";
+    if (hamburger && navMenu) {
+        // Toggle-Funktion für das Burger-Menü
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
         });
-    });
 
-    // Funktion, die das Bild und den Text in der Lightbox aktualisiert
-    function updateLightbox() {
-        const currentImg = images[currentIndex];
-        if (currentImg) {
-            lbImg.src = currentImg.src;
-            captionText.innerHTML = currentImg.alt || ""; // Verhindert "undefined", falls kein Alt-Tag da ist
-        }
+        // Menü automatisch schließen, wenn ein Link geklickt wird
+        document.querySelectorAll(".nav-link").forEach(link => 
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            })
+        );
     }
 
-    // --- 3. STEUERUNG (Pfeile & Schließen) ---
 
-    // Klick auf den rechten Pfeil
-    document.querySelector(".next")?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        currentIndex = (currentIndex + 1) % images.length;
-        updateLightbox();
-    });
+    // --- 2. ERWEITERTE LIGHTBOX MIT SLIDER-FUNKTION ---
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightbox-img");
+    const captionText = document.getElementById("caption");
 
-    // Klick auf den linken Pfeil
-    document.querySelector(".prev")?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        updateLightbox();
-    });
+    // Wir laden alle Galerie-Bilder in ein Array, um darin blättern zu können
+    const images = Array.from(document.querySelectorAll(".work-item img, .category-item img, .gallery-img"));
+    let currentIndex = 0;
 
-    // Schließen beim Klick auf das 'X'
-    document.querySelector(".close")?.addEventListener("click", () => {
-        lightbox.style.display = "none";
-    });
+    // Die Lightbox-Logik wird NUR ausgeführt, wenn die Lightbox im HTML existiert
+    if (lightbox && lbImg) {
 
-    // Schließen beim Klick auf den dunklen Hintergrund
-    lightbox.addEventListener("click", (e) => {
-        if (e.target !== lbImg && e.target !== document.querySelector(".next") && e.target !== document.querySelector(".prev")) {
-            lightbox.style.display = "none";
+        // Event-Listener für jedes Bild zum Öffnen der Lightbox
+        images.forEach((img, index) => {
+            img.addEventListener("click", (e) => {
+                if (img.closest('.category-item')) {
+                    // e.preventDefault(); // Optional: Falls auf Startseite Lightbox statt Link öffnen soll
+                }
+                
+                currentIndex = index;
+                updateLightbox();
+                lightbox.style.display = "flex";
+            });
+        });
+
+        // Funktion, die das Bild und den Text in der Lightbox aktualisiert
+        function updateLightbox() {
+            const currentImg = images[currentIndex];
+            if (currentImg) {
+                lbImg.src = currentImg.src;
+                captionText.innerHTML = currentImg.alt || ""; // Verhindert "undefined", falls kein Alt-Tag da ist
+            }
         }
-    });
 
-    // --- 4. TASTATUR-STEUERUNG ---
-    document.addEventListener("keydown", (e) => {
-        if (lightbox.style.display === "flex") {
-            if (e.key === "ArrowRight") {
-                currentIndex = (currentIndex + 1) % images.length;
-                updateLightbox();
-            }
-            if (e.key === "ArrowLeft") {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                updateLightbox();
-            }
-            if (e.key === "Escape") {
+        // --- 3. STEUERUNG (Pfeile & Schließen) ---
+
+        // Klick auf den rechten Pfeil
+        document.querySelector(".next")?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateLightbox();
+        });
+
+        // Klick auf den linken Pfeil
+        document.querySelector(".prev")?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateLightbox();
+        });
+
+        // Schließen beim Klick auf das 'X'
+        document.querySelector(".close")?.addEventListener("click", () => {
+            lightbox.style.display = "none";
+        });
+
+        // Schließen beim Klick auf den dunklen Hintergrund
+        lightbox.addEventListener("click", (e) => {
+            if (e.target !== lbImg && e.target !== document.querySelector(".next") && e.target !== document.querySelector(".prev")) {
                 lightbox.style.display = "none";
             }
-        }
-    });
+        });
 
-    // Touch-Gesten Steuerung
-    let touchstartX = 0;
-    let touchendX = 0;
-
-    lightbox.addEventListener('touchstart', (e) => {
-        touchstartX = e.changedTouches[0].clientX;
-    }, { passive: true });
-
-    lightbox.addEventListener('touchend', (e) => {
-        touchendX = e.changedTouches[0].clientX;
-        handleSwipeGesture();
-    }, { passive: true });
-
-    function handleSwipeGesture() {
-        const swipeThreshold = 50; 
-        const lightboxImg = document.querySelector('.lightbox-content');
-        if (!lightboxImg) return;
-        
-        if (Math.abs(touchstartX - touchendX) > swipeThreshold) {
-            const isLeftSwipe = touchstartX - touchendX > swipeThreshold;
-            
-            lightboxImg.classList.add(isLeftSwipe ? 'slide-out-left' : 'slide-out-right');
-            
-            if (isLeftSwipe) {
-                currentIndex = (currentIndex + 1) % images.length;
-            } else {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
+        // --- 4. TASTATUR-STEUERUNG ---
+        document.addEventListener("keydown", (e) => {
+            if (lightbox.style.display === "flex") {
+                if (e.key === "ArrowRight") {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateLightbox();
+                }
+                if (e.key === "ArrowLeft") {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    updateLightbox();
+                }
+                if (e.key === "Escape") {
+                    lightbox.style.display = "none";
+                }
             }
+        });
 
-            const nextImageUrl = images[currentIndex].src;
-            const imgPreloader = new Image();
-            imgPreloader.src = nextImageUrl;
+        // Touch-Gesten Steuerung
+        let touchstartX = 0;
+        let touchendX = 0;
 
-            setTimeout(() => {
-                updateLightbox();
+        lightbox.addEventListener('touchstart', (e) => {
+            touchstartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            touchendX = e.changedTouches[0].clientX;
+            handleSwipeGesture();
+        }, { passive: true });
+
+        function handleSwipeGesture() {
+            const swipeThreshold = 50; 
+            const lightboxImg = document.querySelector('.lightbox-content');
+            if (!lightboxImg) return;
+            
+            if (Math.abs(touchstartX - touchendX) > swipeThreshold) {
+                const isLeftSwipe = touchstartX - touchendX > swipeThreshold;
                 
-                lightboxImg.className = 'lightbox-content'; 
-                lightboxImg.classList.add(isLeftSwipe ? 'slide-in-right' : 'slide-in-left');
+                lightboxImg.classList.add(isLeftSwipe ? 'slide-out-left' : 'slide-out-right');
                 
+                if (isLeftSwipe) {
+                    currentIndex = (currentIndex + 1) % images.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                }
+
+                const nextImageUrl = images[currentIndex].src;
+                const imgPreloader = new Image();
+                imgPreloader.src = nextImageUrl;
+
                 setTimeout(() => {
-                    lightboxImg.classList.remove('slide-in-right', 'slide-in-left');
+                    updateLightbox();
+                    
+                    lightboxImg.className = 'lightbox-content'; 
+                    lightboxImg.classList.add(isLeftSwipe ? 'slide-in-right' : 'slide-in-left');
+                    
+                    setTimeout(() => {
+                        lightboxImg.classList.remove('slide-in-right', 'slide-in-left');
+                    }, 100);
+                    
                 }, 100);
-                
-            }, 100);
+            }
         }
     }
-}
+
+}); // DOMContentLoaded Ende
 
 // --- 5. TEXTE ALS ACCORDEON ---
 const texteSammlung = {
