@@ -190,24 +190,3 @@ function openTextModal(id) {
         document.body.style.overflow = 'hidden';
     }
 }
-
-function closeTextModal() {
-    const modal = document.getElementById('textModal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Automatisiertes Lazy-Loading für alle Bilder außer dem ersten Startbild
-document.addEventListener("DOMContentLoaded", () => {
-    // Holt alle Bilder der Webseite
-    const allImages = document.querySelectorAll("img");
-    
-    allImages.forEach((img, index) => {
-        // Überspringt das allererste Bild (.welcome-img), damit es sofort lädt
-        if (index > 0) {
-            img.setAttribute("loading", "lazy");
-        }
-    });
-});
