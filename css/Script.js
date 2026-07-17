@@ -190,3 +190,11 @@ function openTextModal(id) {
         document.body.style.overflow = 'hidden';
     }
 }
+
+function closeTextModal() {
+    const modal = document.getElementById('textModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
