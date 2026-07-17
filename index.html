@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/icon-512.png">
+    <link class="icon" type="image/png" href="images/icon-512.png">
     <title>Thomas Prautsch | Künstler</title>
 
     <meta name="description"
@@ -48,8 +48,9 @@
                 <a href="#galerie" class="welcome-image-link">
                     <picture>
                         <source srcset="images/thomas-prautsch-atelier-pano-mobile.webp" media="(max-width: 767px)">
+                        <!-- fetchpriority="high" sorgt dafür, dass das wichtigste Bild zuerst geladen wird -->
                         <img src="images/thomas-prautsch-atelier-pano.webp" alt="Thomas Prautsch Kunstwerk"
-                            class="welcome-img">
+                            class="welcome-img" fetchpriority="high">
                     </picture>
                 </a>
             </div>
@@ -132,40 +133,34 @@
                             <li class="text-liste-item"
                                 style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
                                 <div class="text-info">
-                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Modell und
-                                        Wirklichkeit</strong>
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Modell und Wirklichkeit</strong>
                                     <small style="color: #777; font-size: 1rem;">Andreas Moersener</small>
                                 </div>
                                 <button class="contact-btn btn-lesen" onclick="openTextModal('modell')">Lesen</button>
-                            </li>
+                             Léi>
 
                             <li class="text-liste-item"
                                 style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
                                 <div class="text-info">
-                                    <strong
-                                        style="display: block; font-size: 1.15rem; font-weight: 400;">Spurensuche</strong>
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Spurensuche</strong>
                                     <small style="color: #777; font-size: 1rem;">Timm Ulrichs</small>
                                 </div>
-                                <button class="contact-btn btn-lesen"
-                                    onclick="openTextModal('spurensuche')">Lesen</button>
+                                <button class="contact-btn btn-lesen" onclick="openTextModal('spurensuche')">Lesen</button>
                             </li>
 
                             <li class="text-liste-item"
                                 style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
                                 <div class="text-info">
-                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Bausteine für
-                                        Licht &amp; Schatten</strong>
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Bausteine für Licht &amp; Schatten</strong>
                                     <small style="color: #777; font-size: 1rem;">Manfred Schneckenburger</small>
                                 </div>
-                                <button class="contact-btn btn-lesen"
-                                    onclick="openTextModal('bausteine')">Lesen</button>
+                                <button class="contact-btn btn-lesen" onclick="openTextModal('bausteine')">Lesen</button>
                             </li>
 
                             <li class="text-liste-item"
                                 style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
                                 <div class="text-info">
-                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Der Maler
-                                        Thomas Prautsch</strong>
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Der Maler Thomas Prautsch</strong>
                                     <small style="color: #777; font-size: 1rem;">Prof. Udo Scheel</small>
                                 </div>
                                 <button class="contact-btn btn-lesen" onclick="openTextModal('maler')">Lesen</button>
@@ -174,8 +169,7 @@
                             <li class="text-liste-item"
                                 style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
                                 <div class="text-info">
-                                    <strong
-                                        style="display: block; font-size: 1.15rem; font-weight: 400;">Aussichtsreich</strong>
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Aussichtsreich</strong>
                                     <small style="color: #777; font-size: 1rem;">Wolfgang Türk</small>
                                 </div>
                                 <button class="contact-btn btn-lesen" onclick="openTextModal('aussicht')">Lesen</button>
@@ -184,12 +178,10 @@
                             <li class="text-liste-item"
                                 style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #eee;">
                                 <div class="text-info">
-                                    <strong
-                                        style="display: block; font-size: 1.15rem; font-weight: 400;">Preisträger-Laudatio</strong>
+                                    <strong style="display: block; font-size: 1.15rem; font-weight: 400;">Preisträger-Laudatio</strong>
                                     <small style="color: #777; font-size: 1rem;">H.G. Eisenhut</small>
                                 </div>
-                                <button class="contact-btn btn-lesen"
-                                    onclick="openTextModal('preisträger')">Lesen</button>
+                                <button class="contact-btn btn-lesen" onclick="openTextModal('preisträger')">Lesen</button>
                             </li>
 
                         </div>
@@ -243,7 +235,7 @@
             <a href="impressum.html" style="color: white; margin-right: 15px;">Impressum</a>
             <a href="datenschutz.html" style="color: white;">Datenschutz</a>
         </div>
-    </footer>
+    </footer >
 
     <div id="textModal" class="lightbox" onclick="if(event.target == this) closeTextModal()">
         <span class="close-btn" onclick="closeTextModal()">X</span>
@@ -253,8 +245,9 @@
             <p id="modalAuthor"
                 style="font-style: italic; color: #444; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
             </p>
+            <!-- font-weight wurde hier wunschgemäß auf das gut lesbare 300 angepasst -->
             <div id="modalFullText"
-                style="text-align: justify; hyphens: auto; font-size: 1rem; line-height: 1.6; color: #000000;"></div>
+                style="text-align: justify; hyphens: auto; font-size: 1rem; line-height: 1.6; color: #000000; font-weight: 300;"></div>
         </div>
     </div>
 

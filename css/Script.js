@@ -198,3 +198,16 @@ function closeTextModal() {
         document.body.style.overflow = 'auto';
     }
 }
+
+// Automatisiertes Lazy-Loading für alle Bilder außer dem ersten Startbild
+document.addEventListener("DOMContentLoaded", () => {
+    // Holt alle Bilder der Webseite
+    const allImages = document.querySelectorAll("img");
+    
+    allImages.forEach((img, index) => {
+        // Überspringt das allererste Bild (.welcome-img), damit es sofort lädt
+        if (index > 0) {
+            img.setAttribute("loading", "lazy");
+        }
+    });
+});
