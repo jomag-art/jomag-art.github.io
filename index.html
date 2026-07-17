@@ -7,7 +7,8 @@
     <link rel="icon" type="image/png" href="images/icon-512.png">
     <title>Thomas Prautsch | Künstler</title>
 
-    <meta name="description" content="Thomas Prautsch – zeitgenössische Kunst, Malerei und Zeichnung / contemporary art, painting and drawing">
+    <meta name="description"
+        content="Thomas Prautsch – zeitgenössische Kunst, Malerei und Zeichnung / contemporary art, painting and drawing">
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
@@ -38,23 +39,27 @@
         </nav>
     </header>
 
-   <main>
-    <section id="home" class="section bg-light">
-        <div class="container">
-            <h1 class="main-title"><span class="visually-hidden">Thomas Prautsch – </span>Malerei und Zeichnung</h1>
-        </div>
-        <div class="welcome-image-container">
-            <a href="#galerie" class="welcome-image-link">
-                <img src="images\thomas-prautsch-atelier-pano.webp" alt="Thomas Prautsch Kunstwerk" class="welcome-img">
-            </a>
-        </div>
-    </section>
+    <main>
+        <section id="home" class="section bg-light">
+            <div class="container">
+                <h1 class="main-title"><span class="visually-hidden">Thomas Prautsch – </span>Malerei und Zeichnung</h1>
+            </div>
+            <div class="welcome-image-container">
+                <a href="#galerie" class="welcome-image-link">
+                    <picture>
+                        <source srcset="images/thomas-prautsch-atelier-pano-mobile.webp" media="(max-width: 767px)">
+                        <img src="images/thomas-prautsch-atelier-pano.webp" alt="Thomas Prautsch Kunstwerk"
+                            class="welcome-img">
+                    </picture>
+                </a>
+            </div>
+        </section>
 
 
         <section id="galerie" class="section gallery-minimal">
             <div class="container">
                 <h2 class="gallery-title">Werkgruppen</h2>
-                
+
                 <div class="jomag-grid">
 
                     <a href="stadtansichten.html" class="jomag-item">
@@ -242,16 +247,22 @@
 
     <div id="textModal" class="lightbox" onclick="if(event.target == this) closeTextModal()">
         <span class="close-btn" onclick="closeTextModal()">X</span>
-        <div class="modal-body" style="background: white; padding: 50px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; border-radius: 2px; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
+        <div class="modal-body"
+            style="background: white; padding: 50px; max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; border-radius: 2px; box-shadow: 0 20px 50px rgba(0,0,0,0.2);">
             <h2 id="modalTitle" style="font-weight: 300; margin-bottom: 10px;">&nbsp;</h2>
-            <p id="modalAuthor" style="font-style: italic; color: #444; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;"></p>
-            <div id="modalFullText" style="text-align: justify; hyphens: auto; font-size: 1rem; line-height: 1.6; color: #000000;"></div>
+            <p id="modalAuthor"
+                style="font-style: italic; color: #444; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+            </p>
+            <div id="modalFullText"
+                style="text-align: justify; hyphens: auto; font-size: 1rem; line-height: 1.6; color: #000000;"></div>
         </div>
     </div>
 
     <div id="lightbox" class="lightbox">
         <span class="close close-btn">X</span>
-        <img class="lightbox-content" id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Großansicht Kunstwerk">
+        <img class="lightbox-content" id="lightbox-img"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            alt="Großansicht Kunstwerk">
         <div id="caption"></div>
     </div>
 
