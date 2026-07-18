@@ -19,19 +19,19 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden !important; /* <-- HIER ERGÄNZEN: Verhindert das Wackeln auf HTML-Ebene */
+    overflow-x: hidden;
     width: 100%;
 }
 
-body {
+html body {
     font-family: "Roboto", 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     font-weight: 200;
     font-variation-settings: "wdth" 75;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden !important; /* Der Airbag gegen ungewolltes horizontales Scrollen auf Handys */
-    width: 100%; /* Fixiert die Breite auf exakt den Bildschirm */
+    overflow-x: hidden; /* Sperrt den horizontalen Scrollbalken sicher */
+    width: 100%;
 }
 
 /* ==========================================================================
@@ -887,24 +887,27 @@ h1.main-title {
     /* Navigation / Hamburger-Menü */
     .hamburger { display: block; }
 
-    .nav-menu {
-        position: fixed;
-        left: auto;              
-        right: -100%;             
-        top: 60px;
-        background-color: var(--bg-color);
-        width: 100%;
-        height: auto;
-        padding-bottom: 0;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        visibility: hidden; /* Verhindert, dass das Menü außerhalb des Bildschirms fühlbar ist */
-    }
+.nav-menu {
+    position: fixed;
+    left: auto;              
+    right: 0; /* Parkposition an den rechten Bildschirmrand setzen */             
+    top: 60px;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: auto;
+    padding-bottom: 0;
 
-    .nav-menu.active { 
-        right: 0; 
-        visibility: visible; /* Macht das Menü sofort sichtbar, wenn es ausklappt */
-    }
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out, visibility 0.3s;
+    
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    visibility: hidden; 
+}
+
+.nav-menu.active { 
+    transform: translateX(0); 
+    visibility: visible; 
+}
     
     .nav-list { flex-direction: column; text-align: center; }
     
