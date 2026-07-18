@@ -19,6 +19,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* <-- HIER ERGÄNZEN: Verhindert das Wackeln auf HTML-Ebene */
+    width: 100%;
 }
 
 body {
@@ -29,6 +31,7 @@ body {
     font-variation-settings: "wdth" 75;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden; /* Der Airbag gegen ungewolltes horizontales Scrollen auf Handys */
+    width: 100%; /* Fixiert die Breite auf exakt den Bildschirm */
 }
 
 /* ==========================================================================
@@ -895,9 +898,13 @@ h1.main-title {
         padding-bottom: 0;
         transition: 0.3s;
         box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        visibility: hidden; /* Verhindert, dass das Menü außerhalb des Bildschirms fühlbar ist */
     }
 
-    .nav-menu.active { right: 0; }
+    .nav-menu.active { 
+        right: 0; 
+        visibility: visible; /* Macht das Menü sofort sichtbar, wenn es ausklappt */
+    }
     
     .nav-list { flex-direction: column; text-align: center; }
     
