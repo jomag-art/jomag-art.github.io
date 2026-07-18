@@ -19,7 +19,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden; /* <-- HIER ERGÄNZEN: Verhindert das Wackeln auf HTML-Ebene */
+    overflow-x: hidden !important; /* <-- HIER ERGÄNZEN: Verhindert das Wackeln auf HTML-Ebene */
     width: 100%;
 }
 
@@ -30,7 +30,7 @@ body {
     font-weight: 200;
     font-variation-settings: "wdth" 75;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; /* Der Airbag gegen ungewolltes horizontales Scrollen auf Handys */
+    overflow-x: hidden !important; /* Der Airbag gegen ungewolltes horizontales Scrollen auf Handys */
     width: 100%; /* Fixiert die Breite auf exakt den Bildschirm */
 }
 
