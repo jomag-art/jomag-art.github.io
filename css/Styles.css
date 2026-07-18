@@ -30,7 +30,7 @@ html body {
     font-weight: 200;
     font-variation-settings: "wdth" 75;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden; /* Sperrt den horizontalen Scrollbalken sicher */
+    overflow-x: hidden !important; /* Sperrt den horizontalen Scrollbalken sicher */
     width: 100%;
 }
 
