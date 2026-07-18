@@ -352,6 +352,7 @@ h1.main-title {
     height: auto;
     max-height: none;
     display: block;
+    aspect-ratio: auto;
 }
 
 .gallery-page .jomag-name {
