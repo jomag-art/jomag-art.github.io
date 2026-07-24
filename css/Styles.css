@@ -281,8 +281,8 @@ h1.main-title {
     display: grid;
     /* KORREKTUR: min(100%, 300px) sichert auch das Haupt-Galeriegitter auf Handys ab */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    column-gap: 35px; 
-    row-gap: 15px;    
+    column-gap: 35px; /* <--- ABSTAND NEBENEINANDER (Waagerecht) */
+    row-gap: 5px;    /* <--- ABSTAND UNTEREINANDER (Senkrecht) */
 }
 
 .jomag-item {
@@ -328,7 +328,7 @@ h1.main-title {
     aspect-ratio: 1 / 1;
     overflow: hidden;
     background-color: transparent;
-    margin-bottom: 25px;
+    margin-bottom: 12px;/* <--- Textabstand */
     border-radius: 4px;
 }
 
