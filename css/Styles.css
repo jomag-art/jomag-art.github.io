@@ -624,7 +624,7 @@ h1.main-title {
 }
 
 .bottom-nav .btn-group .contact-btn {
-    min-width: 155px; 
+    min-width: 115px; 
 }
 
 .bottom-nav .btn-group .contact-btn:first-child { overflow: hidden; }
