@@ -600,8 +600,8 @@ h1.main-title {
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    height: 45px;
-    padding: 0 15px;
+    height: 35px;
+    padding: 0 10px;
     box-sizing: border-box;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -613,7 +613,7 @@ h1.main-title {
     cursor: pointer;
     position: relative;
     z-index: 1;
-    min-width: 100px; 
+    min-width: 75px; 
     max-width: 100%; 
 }
 
@@ -805,7 +805,7 @@ h1.main-title {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px; height: 30px;
+    width: 40px; height: 35px;
     background-color: var(--bg-color);
     color: var(--primary-color);            
     border: 1px solid #cccccc;  
