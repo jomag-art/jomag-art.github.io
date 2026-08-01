@@ -84,8 +84,8 @@ h1, h2, h3 {
 }
 
 .gallery-title {
-    font-size: 1.10rem;         
-    font-weight: 300;           
+    font-size: 1.30rem;         
+    font-weight: 250;           
     letter-spacing: 0.05em;      
     color: var(--primary-color);            
     margin-bottom: 25px;    
