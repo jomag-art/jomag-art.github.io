@@ -880,26 +880,6 @@ h1.main-title {
 
 
 /* ==========================================================================
-   11. ANIMATIONEN & EFFEKTE (SCROLL-REVEAL)
-   ========================================================================== */
-
-/* Grundzustand: Unsichtbar und leicht nach unten versetzt */
-.reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
-}
-
-/* Zielzustand: Wenn im Sichtfeld, gleitet es an seinen Platz */
-.reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* ==========================================================================
    12. MEDIA QUERIES (SYSTEMATISCH SORTIERT NACH BREITE)
    ========================================================================== */
 

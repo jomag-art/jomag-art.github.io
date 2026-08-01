@@ -148,32 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // --- 6. SCROLL-REVEAL EFFEKT (Sanftes Einblenden beim Scrollen) ---
-    
-    // 1. Automatisch allen Bildkacheln die Klasse 'reveal' zuweisen:
-    document.querySelectorAll(".jomag-item, .work-item, .category-item").forEach(item => {
-        item.classList.add("reveal");
-    });
-
-    // 2. Scroll-Beobachter für alle Reveal-Elemente starten:
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if (revealElements.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,                // Startet, sobald 10% im Bild sind
-            rootMargin: "0px 0px -30px 0px" // Startet kurz vor dem unteren Rand
-        });
-
-        revealElements.forEach((el) => observer.observe(el));
-    }
-
 }); // DOMContentLoaded Ende
 
 // --- 5. TEXTE ALS ACCORDEON ---
