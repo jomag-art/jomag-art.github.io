@@ -12,66 +12,6 @@
 
     <link rel="stylesheet" href="css/css2.css">
     <link rel="stylesheet" href="css/Styles.css">
-
-    <!-- Spezifische Anpassung für das breitere Archiv-Grid -->
-    <style>
-        /* Erweitert die Breite für den Werkverzeichnis-Look */
-        .archive-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 4-Spalten-Grid für die Archiv-Übersicht */
-        .archive-grid {
-            /* Spalten-Layout statt Zeilen-Grid */
-            column-count: 4;
-            /* 4 Spalten auf dem PC */
-            column-gap: 25px;
-            /* Abstand zwischen den Spalten */
-            margin-bottom: 60px;
-        }
-
-        /* Wichtig: Verhindert, dass ein Bild mitten im Kasten zerrissen wird */
-        .archive-grid .jomag-item {
-            break-inside: avoid;
-            margin-bottom: 25px;
-            /* Abstand nach unten zum nächsten Bild */
-        }
-
-        /* Subtile Sektions-Trennlinie */
-        .archive-section {
-            border-top: 1px solid #eee;
-            padding-top: 25px;
-            margin-top: 50px;
-        }
-
-        .archive-section-title {
-            font-size: 1.1rem;
-            font-weight: 300;
-            letter-spacing: 0.05em;
-            margin-bottom: 25px;
-            opacity: 0.8;
-        }
-
-        /* Responsive Anpassungen */
-        @media (max-width: 1024px) {
-            .archive-grid {
-                column-count: 3;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .archive-grid {
-                column-count: 2;
-                column-gap: 15px;
-            }
-
-            .archive-grid .jomag-item {
-                margin-bottom: 15px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -93,14 +33,13 @@
         </nav>
     </header>
 
-    <main class="section">
+    <main class="section archive-page">
         <div class="archive-container">
 
-            <div class="gallery-header"
-                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-right: 10px;">
-                <h1 class="category-title"
-                    style="font-family: inherit; font-size: 1.30rem; font-weight: 250; letter-spacing: 0.05em; margin-bottom: 0;">
-                    Index / Archiv
+            <!-- Clean Header -->
+            <div class="gallery-header">
+                <h1 class="category-title">
+                    Archiv <a href="archiv-bildergalerie.html" title="Dia-Ansicht">/</a> Bilderübersicht
                 </h1>
                 <a href="index.html#galerie" class="back-box-btn" title="Zurück zur Übersicht">&#8249;</a>
             </div>
@@ -110,7 +49,9 @@
                  ========================================== -->
             <section class="archive-section" style="border-top: none; padding-top: 0; margin-top: 0;">
                 <h2 class="archive-section-title">Stadtansichten</h2>
-                <div class="gallery-page archive-grid">
+
+                <!-- Baukasten: gallery-masonry-grid -->
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -310,7 +251,7 @@
                  ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Feuerbilder</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -461,7 +402,7 @@
                  ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Landschaften</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -684,7 +625,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Treppenbilder</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -771,7 +712,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Landschaften auf Papier</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -1000,7 +941,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Tuschearbeiten</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -1171,7 +1112,7 @@
                             <img src="images/werkgruppen/tuschearbeiten/thomas-prautsch-tusche-24.webp"
                                 alt="Täglicher Weg, 2025, Tusche auf Papier, 10,5 x 14,8 cm" class="gallery-img">
                         </div>
-                    </div><!-- nächste Rubrik -->
+                    </div>
 
                 </div>
             </section>
@@ -1181,7 +1122,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Constructions</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -1286,7 +1227,7 @@
                             <img src="images/werkgruppen/constructions/thomas-prautsch-untitled.webp"
                                 alt="Untitled, 2022, 105 cm x 148 cm" class="gallery-img">
                         </div>
-                    </div><!-- nächste Rubrik -->
+                    </div>
 
                 </div>
             </section>
@@ -1296,7 +1237,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Wolken aus Graphit</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-masonry-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -1569,7 +1510,7 @@
                             <img src="images/werkgruppen/graphitwolken/thomas-prautsch-wolke-graphit-030.webp"
                                 alt="Ansicht Wolken, Graphit auf Papier, je 10,5 x 14,8 cm" class="gallery-img">
                         </div>
-                    </div><!-- Ende -->
+                    </div>
 
                 </div>
             </section>

@@ -279,10 +279,9 @@ h1.main-title {
 /* --- 5.1 GEMEINSAME BASIS --- */
 .jomag-grid {
     display: grid;
-    /* KORREKTUR: min(100%, 300px) sichert auch das Haupt-Galeriegitter auf Handys ab */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    column-gap: 35px; /* <--- ABSTAND NEBENEINANDER (Waagerecht) */
-    row-gap: 5px;    /* <--- ABSTAND UNTEREINANDER (Senkrecht) */
+    column-gap: 35px;
+    row-gap: 5px;
 }
 
 .jomag-item {
@@ -328,7 +327,7 @@ h1.main-title {
     aspect-ratio: 1 / 1;
     overflow: hidden;
     background-color: transparent;
-    margin-bottom: 12px;/* <--- Textabstand */
+    margin-bottom: 12px;
     border-radius: 4px;
 }
 
@@ -373,7 +372,9 @@ h1.main-title {
     }
 }
 
-/* --- 5.5 DIE SPALTEN-LAYOUTS --- */
+/* --- 5.5 DIE SPALTEN-LAYOUTS (BAUKASTEN) --- */
+
+/* 1-Spaltig */
 .gallery-page.gallery-one-column {
     display: grid;
     grid-template-columns: 1fr;
@@ -387,6 +388,7 @@ h1.main-title {
     align-items: center;
 }
 
+/* 2-Spaltig */
 .gallery-page.gallery-two-columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -401,6 +403,7 @@ h1.main-title {
     align-items: flex-start;
 }
 
+/* 3-Spaltig */
 .gallery-page.gallery-three-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -416,6 +419,87 @@ h1.main-title {
     align-items: center;
 }
 
+/* NEU: 4-Spaltig Dia-Raster (Quadratische Rahmen) */
+.gallery-page.gallery-dia-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+.gallery-dia-grid .jomag-item {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+.gallery-dia-grid .jomag-img-wrapper {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: var(--main-radius);
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.2s ease;
+    overflow: hidden;
+}
+.gallery-dia-grid .jomag-item:hover .jomag-img-wrapper {
+    border-color: #c4c4c4;
+    box-shadow: none;
+}
+.gallery-dia-grid .gallery-img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+
+/* NEU: 4-Spaltig Masonry-Raster (Spalten-Fluss) */
+.gallery-page.gallery-masonry-grid {
+    column-count: 4;
+    column-gap: 25px;
+    margin-bottom: 60px;
+}
+.gallery-masonry-grid .jomag-item {
+    break-inside: avoid;
+    margin-bottom: 25px;
+}
+
+/* Responsive Anpassungen für die neuen Baukasten-Grids */
+@media (max-width: 1024px) {
+    .gallery-page.gallery-dia-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .gallery-page.gallery-masonry-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-page.gallery-dia-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .gallery-dia-grid .jomag-img-wrapper {
+        padding: 8px;
+    }
+    .gallery-page.gallery-masonry-grid {
+        column-count: 2;
+        column-gap: 15px;
+    }
+    .gallery-masonry-grid .jomag-item {
+        margin-bottom: 15px;
+    }
+}
+
+/* Ergänzende Hilfsklassen */
 .limit-height .gallery-img {
     max-height: 320px; 
     width: auto;       
@@ -441,6 +525,66 @@ h1.main-title {
     width: 100%;
     height: 100%;
     object-fit: contain; 
+}
+
+/* ==========================================================================
+   ARCHIV-SEITEN LAYOUT (NEU)
+   ========================================================================== */
+body,
+.section.archive-page,
+.section.archive-page .archive-container {
+    background-color: #f7f7f7;
+}
+
+.archive-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 20px 40px;
+}
+
+.archive-section {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 25px;
+    margin-top: 50px;
+}
+
+.archive-section-title {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* --- 9.1 ARCHIV HEADER --- */
+.gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-right: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.gallery-header .category-title {
+    font-family: inherit;
+    font-size: 1.30rem;
+    font-weight: 250;
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+}
+
+.gallery-header .category-title a {
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+}
+
+@media (max-width: 600px) {
+    .archive-container {
+        padding: 10px 10px 30px;
+    }
 }
 
 /* ==========================================================================

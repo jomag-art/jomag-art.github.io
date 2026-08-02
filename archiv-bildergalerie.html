@@ -12,112 +12,6 @@
 
     <link rel="stylesheet" href="css/css2.css">
     <link rel="stylesheet" href="css/Styles.css">
-
-    <!-- Spezifische Anpassung für das breitere Archiv-Grid -->
-    <style>
-        /* background color */
-        body,
-        .section.archive-page,
-        .section.archive-page .archive-container {
-            background-color: #f7f7f7;
-        }
-
-        /* Passt den Container an: Voll integriert ohne isolierten Kasten */
-        .archive-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 20px 40px;
-        }
-
-        /* 4-Spalten-Grid (Zeilenweise von links nach rechts) */
-        .archive-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        /* Strikte Festlegung des Bild-Containers (Kachel) */
-        .archive-grid .jomag-item {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-        }
-
-        /* Das "Dia": Reinweißer Rahmen */
-        .archive-grid .jomag-img-wrapper {
-            width: 100%;
-            height: 100%;
-            aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ffffff;
-            border-radius: var(--main-radius);
-            padding: 12px;
-            box-sizing: border-box;
-            border: 1px solid #e0e0e0;
-            transition: border-color 0.2s ease;
-            overflow: hidden;
-        }
-
-        /* Ruhiger Hover-Effekt: Nur die feine Linie dunkelt sanft nach */
-        .archive-grid .jomag-item:hover .jomag-img-wrapper {
-            border-color: #c4c4c4;
-            box-shadow: none;
-        }
-
-        /* Das Kunstwerk im Dia – korrigiert für iOS Safari */
-        .archive-grid .gallery-img {
-            max-width: 100% !important;
-            max-height: 100% !important;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            flex-shrink: 0;
-            /* Verhindert, dass Safari das Bild auf 0px zusammenstaucht */
-            display: block;
-            margin: auto;
-            /* Garantiert die absolute Zentrierung im Rahmen */
-            cursor: pointer;
-        }
-
-        /* Subtile Trennlinie zwischen den Rubriken */
-        .archive-section {
-            border-top: 1px solid #e0e0e0;
-            padding-top: 25px;
-            margin-top: 50px;
-        }
-
-        .archive-section-title {
-            font-size: 1.1rem;
-            font-weight: 300;
-            letter-spacing: 0.05em;
-            margin-bottom: 25px;
-            color: #333;
-        }
-
-        /* Responsive Anpassungen für Tablet & Smartphone */
-        @media (max-width: 1024px) {
-            .archive-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .archive-container {
-                padding: 10px 10px 30px;
-            }
-
-            .archive-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .archive-grid .jomag-img-wrapper {
-                padding: 8px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -142,15 +36,11 @@
     <main class="section archive-page">
         <div class="archive-container">
 
-            <div class="gallery-header"
-                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; padding-right: 10px; border-bottom: 1px solid #e0e0e0; padding-bottom: 20px;">
-
-                <h1 class="category-title"
-                    style="font-family: inherit; font-size: 1.30rem; font-weight: 250; letter-spacing: 0.05em; margin-bottom: 0;">
-                    Archiv <a href="archiv-masonry.html" title="Alternative Ansicht"
-                        style="color: inherit; text-decoration: none; cursor: default;">/</a> Bilderübersicht
+            <!-- Der aufgeräumte Header (incl. Link) -->
+            <div class="gallery-header">
+                <h1 class="category-title">
+                    Archiv <a href="archiv-masonry.html" title="Alternative Ansicht">/</a> Bilderübersicht
                 </h1>
-
                 <a href="index.html#galerie" class="back-box-btn" title="Zurück zur Übersicht">&#8249;</a>
             </div>
 
@@ -159,7 +49,9 @@
                  ========================================== -->
             <section class="archive-section" style="border-top: none; padding-top: 0; margin-top: 0;">
                 <h2 class="archive-section-title">Stadtansichten</h2>
-                <div class="gallery-page archive-grid">
+
+                <!-- "gallery-dia-grid" -->
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -359,7 +251,7 @@
                  ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Feuerbilder</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -510,7 +402,7 @@
                  ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Landschaften</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -733,7 +625,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Treppenbilder</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -820,7 +712,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Landschaften auf Papier</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -1049,7 +941,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Tuschearbeiten</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -1230,7 +1122,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Constructions</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
@@ -1345,7 +1237,7 @@
                         ========================================== -->
             <section class="archive-section">
                 <h2 class="archive-section-title">Wolken aus Graphit</h2>
-                <div class="gallery-page archive-grid">
+                <div class="gallery-page gallery-dia-grid">
 
                     <div class="jomag-item">
                         <div class="jomag-img-wrapper">
