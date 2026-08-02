@@ -483,13 +483,28 @@ h1.main-title {
 }
 
 @media (max-width: 600px) {
+    /* Dia-Grid auf Mobilgeräten anpassen */
     .gallery-page.gallery-dia-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+        align-items: stretch;
     }
+
+    /* Auf mobil lösen wir das starre 1/1 Quadrat auf, 
+       damit Hochformate den Rahmen nicht mehr ins Unendliche ziehen */
+    .gallery-dia-grid .jomag-item {
+        height: auto;
+        aspect-ratio: auto;
+    }
+
     .gallery-dia-grid .jomag-img-wrapper {
-        padding: 8px;
+        height: 100%;
+        max-height: 220px; /* Begrenzt die Höhe auf Handys sauber */
+        aspect-ratio: auto;
+        padding: 6px;
     }
+
+    /* Masonry Mobil-Anpassung */
     .gallery-page.gallery-masonry-grid {
         column-count: 2;
         column-gap: 15px;
