@@ -30,8 +30,9 @@ html body {
     font-weight: 200;
     font-variation-settings: "wdth" 75;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden !important; /* Sperrt den horizontalen Scrollbalken sicher */
+    overflow-x: hidden !important;
     width: 100%;
+    background-color: var(--bg-color); /* Body bleibt weiß */
 }
 
 /* ==========================================================================
@@ -52,7 +53,6 @@ h1, h2, h3 {
     z-index: 1;
 }
 
-/* Responsive Anpassung für Sektionsabstände auf Mobilgeräten */
 @media (max-width: 768px) {
     .section {
         padding: 80px 5% 40px;
@@ -83,6 +83,7 @@ h1, h2, h3 {
     padding-top: 20px;
 }
 
+/* Standardsortierung für Werkgruppen-Überschriften (Mit Unterstrich) */
 .gallery-title {
     font-size: 1.30rem;         
     font-weight: 250;           
@@ -90,12 +91,28 @@ h1, h2, h3 {
     color: var(--primary-color);            
     margin-bottom: 25px;    
     border-bottom: 1px solid #eee;
-    padding-bottom: 15px;        
+    padding-bottom: 15px;
 }
 
-/* ==========================================================================
-   HAUPTTITEL
-   ========================================================================== */
+/* Basis-Styling für alle Kategorie-Überschriften */
+.gallery-title,
+.archive-section-title {
+    font-size: 1.30rem;
+    font-weight: 250;
+    letter-spacing: 0.05em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee; /* Unterstrich als Standard */
+    padding-bottom: 15px;
+}
+
+/* Spezialfall: no-border entfernt sauber den Unterstrich & Abstand */
+.gallery-title.no-border,
+.archive-section-title.no-border {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
 h1.main-title {
     font-weight: 300;        
     font-size: 1rem;         
@@ -106,7 +123,6 @@ h1.main-title {
     text-align: left;
 }
 
-/* Auf mobilen Geräten den linken Margin des Haupttitels anpassen */
 @media (max-width: 768px) {
     h1.main-title {
         margin: 75px 0 25px 0;
@@ -204,11 +220,10 @@ h1.main-title {
    ========================================================================== */
 .welcome-image-container { margin-top: 30px; text-align: center; }
 
-/* Link-Einstellungen für das Startbild */
 .welcome-image-link {
     display: block;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* Verhindert das blaue Aufblitzen beim Tippen auf dem Handy */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .welcome-img {
@@ -219,17 +234,14 @@ h1.main-title {
     left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
-    object-position: 27% center; /* Dein perfekt eingestellter Wert */
+    object-position: 27% center;
     border-radius: 0px;
 }
 
-/* Perfekte Höhe für Handys (Bildschirme bis 767px Breite) */
 @media (max-width: 767px) {
     .welcome-img {
         height: 520px; 
     }
-    
-    /* Verhindert ungewolltes Auslösen des Links beim Scrollen auf Touch-Geräten */
     .welcome-image-link {
         touch-action: pan-y; 
     }
@@ -237,7 +249,6 @@ h1.main-title {
 
 .category-grid {
     display: grid;
-    /* KORREKTUR: min(100%, 300px) verhindert das Rausdrücken auf kleinen Handys */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 20px;
 }
@@ -346,7 +357,6 @@ h1.main-title {
     display: flex;
 }
 
-/* Wichtig: Nutzt :not(.gallery-dia-grid), damit das Dia-Grid nicht von width: 100% überschrieben wird */
 .gallery-page:not(.gallery-dia-grid) .gallery-img {
     width: 100%;
     height: auto;
@@ -404,23 +414,38 @@ h1.main-title {
     align-items: flex-start;
 }
 
-/* 3-Spaltig */
+/* 3-Spaltige Galerie */
 .gallery-page.gallery-three-columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-    row-gap: 20px;
+    column-gap: 20px; 
+    row-gap: 20px;    
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 50px;
-    align-items: center;
-}
-.gallery-three-columns .jomag-img-wrapper {
-    justify-content: center;
-    align-items: center;
+    align-items: center; /* ZENTRIERT die Bilder in ihrer Zeile vertikal */
 }
 
-/* 4-Spaltig Dia-Raster (Quadratische Rahmen) */
+.gallery-page.gallery-three-columns .jomag-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+/* Maximale Höhe beschränken & Proportionalität sichern */
+.gallery-page.gallery-three-columns.limit-height .jomag-img-wrapper img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   5.6 DIA-RASTER & SAFARI FIX (Exakt wie Zustand 001, ohne wichtigen Ballast)
+   ========================================================================== */
 .gallery-page.gallery-dia-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -431,24 +456,23 @@ h1.main-title {
 .gallery-dia-grid .jomag-item {
     width: 100%;
     aspect-ratio: 1 / 1;
+    display: block;
 }
 
+/* Kacheln der Diagalerie: Innen weiß, dezent grauer Rand */
 .gallery-dia-grid .jomag-img-wrapper {
     width: 100%;
     height: 100%;
     aspect-ratio: 1 / 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
+    position: relative;
+    background-color: #ffffff; /* Ganz normal ohne !important */
     border-radius: var(--main-radius);
     padding: 12px;
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
     transition: border-color 0.2s ease;
     overflow: hidden;
-    position: relative; /* Safari Hilfestellung */
-    min-height: 0;      /* Verhindert Flexbox-Höhen-Explosion in Safari */
+    display: block;
 }
 
 .gallery-dia-grid .jomag-item:hover .jomag-img-wrapper {
@@ -456,20 +480,24 @@ h1.main-title {
     box-shadow: none;
 }
 
-/* Kugel-sicherer Safari-Bild-Fix */
+/* Safari-Fix für absolut positionierte Galerie-Bilder (ohne !important) */
 .gallery-page.gallery-dia-grid .gallery-img,
 .archive-grid .gallery-img {
-    max-width: calc(100% - 24px) !important;
-    max-height: calc(100% - 24px) !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-    flex-shrink: 1 !important; /* Erlaubt Schrumpfen im Rahmenelement */
-    display: block !important;
-    margin: auto !important;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto;
+    display: block;
 }
 
-/* 4-Spaltig Masonry-Raster (Spalten-Fluss) */
+/* 4-Spaltig Masonry-Raster */
 .gallery-page.gallery-masonry-grid {
     column-count: 4;
     column-gap: 25px;
@@ -479,33 +507,6 @@ h1.main-title {
 .gallery-masonry-grid .jomag-item {
     break-inside: avoid;
     margin-bottom: 25px;
-}
-
-/* Responsive Anpassungen */
-@media (max-width: 1024px) {
-    .gallery-page.gallery-dia-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .gallery-page.gallery-masonry-grid {
-        column-count: 3;
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery-page.gallery-dia-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    .gallery-dia-grid .jomag-img-wrapper {
-        padding: 8px;
-    }
-    .gallery-page.gallery-masonry-grid {
-        column-count: 2;
-        column-gap: 15px;
-    }
-    .gallery-masonry-grid .jomag-item {
-        margin-bottom: 15px;
-    }
 }
 
 /* Ergänzende Hilfsklassen */
@@ -523,7 +524,7 @@ h1.main-title {
 .ratio-4-3 .jomag-img-wrapper {
     aspect-ratio: 4 / 3;
     width: 100%;
-    background-color: var(--bg-color);
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -537,9 +538,8 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   ARCHIV-SEITEN LAYOUT (NEU)
+   6. ARCHIV-SEITEN LAYOUT
    ========================================================================== */
-body,
 .section.archive-page,
 .section.archive-page .archive-container {
     background-color: #f7f7f7;
@@ -565,14 +565,20 @@ body,
     color: #333;
 }
 
-/* --- 9.1 ARCHIV HEADER --- */
 .gallery-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reduziert von 30px */
     padding-right: 10px;
+    padding-bottom: 0px;  /* Reduziert von 20px, da kein Unterstrich mehr da ist */
+    border-bottom: none;
+}
+
+/* Unterstrich & Abstand NUR für das Archiv beibehalten */
+.archive-page .gallery-header {
     border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 30px;
     padding-bottom: 20px;
 }
 
@@ -590,14 +596,8 @@ body,
     cursor: default;
 }
 
-@media (max-width: 600px) {
-    .archive-container {
-        padding: 10px 10px 30px;
-    }
-}
-
 /* ==========================================================================
-   6. TEXTE-Box & ACCORDION
+   7. TEXTE-Box & ACCORDION
    ========================================================================== */
 .texte-grid {
     display: grid;
@@ -722,7 +722,7 @@ body,
 }
 
 /* ==========================================================================
-   7. KONTAKT & BUTTONS
+   8. KONTAKT & BUTTONS
    ========================================================================== */
 .contact-wrapper {
     display: flex;
@@ -802,7 +802,7 @@ body,
 }
 
 /* ==========================================================================
-   8. LIGHTBOX BASE STYLES (PC-ANSICHT)
+   9. LIGHTBOX BASE STYLES
    ========================================================================== */
 .lightbox {
     display: none;
@@ -878,10 +878,10 @@ body,
 }
 
 #caption {
-    margin-top: 25px;                                                                   
-    color: #2b2b2b;                                                                   
+    margin-top: 25px;                                                               
+    color: #2b2b2b;                                                               
     font-size: 0.90rem;          
-    font-weight: 100;                                                                   
+    font-weight: 100;                                                               
     letter-spacing: 0.05em;            
     text-align: center;          
     max-width: 80%;
@@ -891,7 +891,7 @@ body,
 }
 
 /* ==========================================================================
-   9. FOOTER
+   10. FOOTER & SPECIAL BUTTONS
    ========================================================================== */
 .footer {
     text-align: center;
@@ -902,9 +902,6 @@ body,
     z-index: 10;
 }
 
-/* ==========================================================================
-   10. SPECIAL BUTTONS & TRENNLINIEN
-   ========================================================================== */
 .back-button-link {
     text-decoration: none;
     display: inline-block;
@@ -978,7 +975,7 @@ body,
 }
 
 /* ==========================================================================
-   11. VITA / CV STRUKTUR (REINES TEXT-GITTER)
+   11. VITA / CV STRUKTUR
    ========================================================================== */
 .vita-container {
     max-width: 800px;       
@@ -1031,40 +1028,36 @@ body,
 .vita-list li { margin-bottom: 8px; font-weight: 300; }
 .vita-list li:last-child { margin-bottom: 0; }
 
-
 /* ==========================================================================
-   12. MEDIA QUERIES (SYSTEMATISCH SORTIERT NACH BREITE)
+   12. MEDIA QUERIES & RESPONSIVE ANPASSUNGEN
    ========================================================================== */
 
 /* --- A. TABLETS & SMARTPHONES (bis 900px Breite) --- */
 @media (max-width: 900px) {
-    /* Navigation / Hamburger-Menü */
     .hamburger { display: block; }
 
-.nav-menu {
-    position: fixed;
-    left: auto;              
-    right: 0; /* Parkposition an den rechten Bildschirmrand setzen */             
-    top: 60px;
-    background-color: var(--bg-color);
-    width: 100%;
-    height: auto;
-    padding-bottom: 0;
+    .nav-menu {
+        position: fixed;
+        left: auto;              
+        right: 0;             
+        top: 60px;
+        background-color: var(--bg-color);
+        width: 100%;
+        height: auto;
+        padding-bottom: 0;
+        transform: translateX(100%); 
+        transition: transform 0.3s ease-in-out, visibility 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        visibility: hidden; 
+    }
 
-    transform: translateX(100%); 
-    transition: transform 0.3s ease-in-out, visibility 0.3s;
-    
-    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-    visibility: hidden; 
-}
-
-.nav-menu.active { 
-    transform: translateX(0); 
-    visibility: visible; 
-}
-    
+    .nav-menu.active { 
+        transform: translateX(0); 
+        visibility: visible; 
+    }
+        
     .nav-list { flex-direction: column; text-align: center; }
-    
+        
     .nav-item { 
         margin: 0 auto;                  
         padding: 1.2rem 0;           
@@ -1079,14 +1072,13 @@ body,
     .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-    /* Untere Buttons */
     .bottom-nav .btn-group .contact-btn {
         min-width: 135px;    
         font-size: 0.85rem;  
         padding: 0 10px;     
     }
 
-    /* Lightbox Navigation auf Touchscreens optimiert */
+    /* Lightbox Mobile Navigation */
     .lightbox .close,
     .lightbox .close-btn {
         top: 15px;                  
@@ -1142,24 +1134,23 @@ body,
 
 /* --- B. MOBILE GERÄTE ALLGEMEIN (bis 768px Breite) --- */
 @media (max-width: 768px) {
-    /* Galerie Mobile: Überschreibt die Desktop-Spalten durch exakte Selektoren-Spezifität */
-    .gallery-page.jomag-grid,
+    /* Galerie 1, 2 und 3 Spalten auf 1 Spalte reduzieren */
     .gallery-page.gallery-one-column,
     .gallery-page.gallery-two-columns,
     .gallery-page.gallery-three-columns {
         grid-template-columns: 1fr; 
-        row-gap: 15px; /* Eleganter Abstand zwischen den Bildern auf dem Handy */              
+        row-gap: 15px;              
     }
 
-    .gallery-page .jomag-img-wrapper {
+    .gallery-page:not(.gallery-dia-grid) .jomag-img-wrapper {
         aspect-ratio: auto;            
-        height: auto;                  
+        height: auto;                
         display: block;                
         background-color: transparent; 
         margin-bottom: 0px;
     }
 
-    .gallery-page .jomag-img-wrapper img {
+    .gallery-page:not(.gallery-dia-grid) .jomag-img-wrapper img {
         width: 100%;          
         height: auto;         
         max-width: 100%;
@@ -1190,7 +1181,6 @@ body,
         grid-row: auto;
     }
 
-    /* Mobile Anpassung für die Vita-Tabelle */
     .vita-grid {
         grid-template-columns: 1fr; 
         row-gap: 18px;              
@@ -1208,13 +1198,36 @@ body,
 
 /* --- C. SEHR KLEINE SMARTPHONES (bis 600px Breite) --- */
 @media (max-width: 600px) {
-    /* KORREKTUR: Greift jetzt garantiert fehlerfrei als letzte, spezifischste Regel */
+    .gallery-page.gallery-dia-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .gallery-dia-grid .jomag-img-wrapper {
+        padding: 8px;
+    }
+    .gallery-page.gallery-dia-grid .gallery-img,
+    .archive-grid .gallery-img {
+        top: 8px !important;
+        left: 8px !important;
+        right: 8px !important;
+        bottom: 8px !important;
+        width: calc(100% - 16px) !important;
+        height: calc(100% - 16px) !important;
+    }
+    .gallery-page.gallery-masonry-grid {
+        column-count: 2;
+        column-gap: 15px;
+    }
+    .gallery-masonry-grid .jomag-item {
+        margin-bottom: 15px;
+    }
     .prev, .next { font-size: 35px; padding: 10px; }
     .close-btn { right: 20px; top: 10px; font-size: 35px; }
     .lightbox-content { height: 70vh; }
+    .archive-container { padding: 10px 10px 30px; }
 }
 
-/* --- ANIMATIONSKLASSEN FÜR DEN SWIPE --- */
+/* --- ANIMATIONSKLASSEN FÜR SWIPE & LIGHTBOX --- */
 .slide-out-right { transform: translateX(100%) scale(0.9); opacity: 0; }
 .slide-out-left { transform: translateX(-100%) scale(0.9); opacity: 0; }
 .slide-in-right { transform: translateX(100%) scale(0.9); opacity: 0; transition-duration: 0s; }
