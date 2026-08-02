@@ -420,7 +420,7 @@ h1.main-title {
     align-items: center;
 }
 
-/* 4-Spaltig Dia-Raster (Quadratische Rahmen mit absolutem Safari-Fix) */
+/* 4-Spaltig Dia-Raster (Quadratische Rahmen) */
 .gallery-page.gallery-dia-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -447,6 +447,8 @@ h1.main-title {
     border: 1px solid #e0e0e0;
     transition: border-color 0.2s ease;
     overflow: hidden;
+    position: relative; /* Safari Hilfestellung */
+    min-height: 0;      /* Verhindert Flexbox-Höhen-Explosion in Safari */
 }
 
 .gallery-dia-grid .jomag-item:hover .jomag-img-wrapper {
@@ -454,18 +456,17 @@ h1.main-title {
     box-shadow: none;
 }
 
-/* Der exakte Safari/iOS Flexbox Bild-Fix */
-.gallery-dia-grid .gallery-img,
+/* Kugel-sicherer Safari-Bild-Fix */
+.gallery-page.gallery-dia-grid .gallery-img,
 .archive-grid .gallery-img {
-    max-width: 100% !important;
-    max-height: 100% !important;
+    max-width: calc(100% - 24px) !important;
+    max-height: calc(100% - 24px) !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
-    flex-shrink: 0 !important;
+    flex-shrink: 1 !important; /* Erlaubt Schrumpfen im Rahmenelement */
     display: block !important;
     margin: auto !important;
-    cursor: pointer;
 }
 
 /* 4-Spaltig Masonry-Raster (Spalten-Fluss) */
