@@ -538,11 +538,22 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   6. ARCHIV-SEITEN LAYOUT
+   6. ARCHIV-SEITEN LAYOUT (Minimalistisch & sauber)
    ========================================================================== */
-.section.archive-page,
-.section.archive-page .archive-container {
+
+/* 1. Basis für alle Archivseiten: Weißer Hintergrund */
+.archive-page {
+    background-color: #ffffff;
+}
+
+/* 2. Spezialfall Dia-Galerie: Der Seitenhintergrund wird grau */
+.archive-page:has(.gallery-dia-grid, .archive-grid) {
     background-color: #f7f7f7;
+}
+
+/* 3. Container erbt immer transparent die Farbe der Hauptseite */
+.archive-container {
+    background-color: transparent;
 }
 
 .archive-container {
