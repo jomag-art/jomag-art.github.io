@@ -346,7 +346,8 @@ h1.main-title {
     display: flex;
 }
 
-.gallery-page .gallery-img {
+/* Wichtig: Nutzt :not(.gallery-dia-grid), damit das Dia-Grid nicht von width: 100% überschrieben wird */
+.gallery-page:not(.gallery-dia-grid) .gallery-img {
     width: 100%;
     height: auto;
     max-height: none;
@@ -419,49 +420,7 @@ h1.main-title {
     align-items: center;
 }
 
-/* NEU: 4-Spaltig Dia-Raster (Quadratische Rahmen) */
-.gallery-page.gallery-dia-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 60px;
-}
-.gallery-dia-grid .jomag-item {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-}
-.gallery-dia-grid .jomag-img-wrapper {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    border-radius: var(--main-radius);
-    padding: 12px;
-    box-sizing: border-box;
-    border: 1px solid #e0e0e0;
-    transition: border-color 0.2s ease;
-    overflow: hidden;
-}
-.gallery-dia-grid .jomag-item:hover .jomag-img-wrapper {
-    border-color: #c4c4c4;
-    box-shadow: none;
-}
-.gallery-dia-grid .gallery-img {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    flex-shrink: 0;
-    display: block;
-    margin: auto;
-    cursor: pointer;
-}
-
-/* NEU: 4-Spaltig Dia-Raster (Quadratische Rahmen - Exakte 1:1 Funktion) */
+/* 4-Spaltig Dia-Raster (Quadratische Rahmen mit absolutem Safari-Fix) */
 .gallery-page.gallery-dia-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -495,20 +454,21 @@ h1.main-title {
     box-shadow: none;
 }
 
-/* WICHTIGER SAFARI-FIX: Spezifität erhöhen, damit width: 100% überschrieben wird */
-.gallery-page.gallery-dia-grid .gallery-img {
+/* Der exakte Safari/iOS Flexbox Bild-Fix */
+.gallery-dia-grid .gallery-img,
+.archive-grid .gallery-img {
     max-width: 100% !important;
     max-height: 100% !important;
     width: auto !important;
     height: auto !important;
-    object-fit: contain;
-    flex-shrink: 0;
-    display: block;
-    margin: auto;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    margin: auto !important;
     cursor: pointer;
 }
 
-/* NEU: 4-Spaltig Masonry-Raster (Spalten-Fluss) */
+/* 4-Spaltig Masonry-Raster (Spalten-Fluss) */
 .gallery-page.gallery-masonry-grid {
     column-count: 4;
     column-gap: 25px;
@@ -520,7 +480,7 @@ h1.main-title {
     margin-bottom: 25px;
 }
 
-/* Responsive Anpassungen (Exakt aus deinem Inline-CSS) */
+/* Responsive Anpassungen */
 @media (max-width: 1024px) {
     .gallery-page.gallery-dia-grid {
         grid-template-columns: repeat(3, 1fr);
