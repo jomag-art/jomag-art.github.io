@@ -198,3 +198,27 @@ function closeTextModal() {
         document.body.style.overflow = 'auto';
     }
 }
+
+// ==========================================================================
+// SANFTES EINBLENDEN BEIM BILD-LOAD
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.gallery-img');
+
+    images.forEach(img => {
+        // Prüfen, ob das Bild bereits im Browser-Cache liegt
+        if (img.complete) {
+            img.classList.add('is-loaded');
+        } else {
+            // Reagiert exakt im Moment des vollständigen Downloads
+            img.addEventListener('load', () => {
+                img.classList.add('is-loaded');
+            });
+            
+            // Falls ein Ladefehler auftritt, trotzdem anzeigen
+            img.addEventListener('error', () => {
+                img.classList.add('is-loaded');
+            });
+        }
+    });
+});
