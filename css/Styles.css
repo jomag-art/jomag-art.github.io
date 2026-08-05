@@ -346,15 +346,6 @@ h1.main-title {
     transform: scale(1.06);
 }
 
-/* ==========================================================================
-   SANFTES LAYOUT-GLEITEN (Verhindert zuckendes Verspringen beim Laden)
-   ========================================================================== */
-.jomag-img-wrapper,
-.jomag-item {
-    /* Animiert Positionsänderungen und Höhenanpassungen sanft */
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 /* --- 5.3 UNTERSEITEN (GALERIEN) BASIS-STYLING --- */
 .gallery-page .jomag-img-wrapper {
     width: 100%;

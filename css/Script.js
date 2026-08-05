@@ -204,25 +204,26 @@ function closeTextModal() {
 }
 
 // ==========================================================================
-// SANFTES EINBLENDEN BEIM BILD-LOAD
+// RUHIGES, SANFTES EINBLENDEN NACH LAYOUT-STABILISIERUNG
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.gallery-img');
 
     images.forEach(img => {
-        // Prüfen, ob das Bild bereits im Browser-Cache liegt
+        const revealImage = () => {
+            // Doppeltes AnimationFrame wartet die vollständige Layout-Berechnung des Browsers ab
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    img.classList.add('is-loaded');
+                });
+            });
+        };
+
         if (img.complete) {
-            img.classList.add('is-loaded');
+            revealImage();
         } else {
-            // Reagiert exakt im Moment des vollständigen Downloads
-            img.addEventListener('load', () => {
-                img.classList.add('is-loaded');
-            });
-            
-            // Falls ein Ladefehler auftritt, trotzdem anzeigen
-            img.addEventListener('error', () => {
-                img.classList.add('is-loaded');
-            });
+            img.addEventListener('load', revealImage);
+            img.addEventListener('error', revealImage);
         }
     });
 });
