@@ -914,7 +914,7 @@ h1.main-title {
 }
 
 /* ==========================================================================
-   10. FOOTER & SPECIAL BUTTONS
+   10. FOOTER, BOTTOM-NAV & SPECIAL BUTTONS
    ========================================================================== */
 .footer {
     text-align: center;
@@ -925,6 +925,51 @@ h1.main-title {
     z-index: 10;
 }
 
+/* Ergänzungen für den Footer */
+.footer-credits {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.footer-links a {
+    color: white;
+    margin-right: 15px;
+}
+
+.footer-links a:last-child {
+    margin-right: 0;
+}
+
+/* Bottom-Nav (Weitere Kategorien) */
+.bottom-nav-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 40px 0 20px;
+}
+
+.bottom-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-right: 10px;
+}
+
+.bottom-nav-title {
+    font-weight: 250;
+    letter-spacing: 0.05em;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* Lightbox Bildunterschrift */
+#caption {
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* Vorhandene Buttons & Nav-Elemente */
 .back-button-link {
     text-decoration: none;
     display: inline-block;
