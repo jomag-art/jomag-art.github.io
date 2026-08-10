@@ -83,32 +83,30 @@ h1, h2, h3 {
     padding-top: 20px;
 }
 
-/* Standardsortierung für Werkgruppen-Überschriften (Mit Unterstrich) */
-.gallery-title {
-    font-size: 1.30rem;         
-    font-weight: 250;           
-    letter-spacing: 0.05em;      
-    color: var(--primary-color);            
-    margin-bottom: 25px;    
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-}
+/* --------------------------------------------------------------------------
+   KATEGORIE- & SECTION-ÜBERSCHRIFTEN (Zentral aufgeräumt)
+   -------------------------------------------------------------------------- */
 
-/* Basis-Styling für alle Kategorie-Überschriften */
+/* 1. Basis-Styling für ALLE Kategorie-Überschriften */
 .gallery-title,
+.category-title,
 .archive-section-title {
     font-size: 1.30rem;
     font-weight: 250;
     letter-spacing: 0.05em;
     color: var(--primary-color);
     margin-bottom: 25px;
-    border-bottom: 1px solid #eee; /* Unterstrich als Standard */
+}
+
+/* 2. Standardmäßig mit Unterstrich (z. B. Werkgruppen & Galerieseiten) */
+.gallery-title,
+.category-title {
+    border-bottom: 1px solid #eee;
     padding-bottom: 15px;
 }
 
-/* Spezialfall: no-border entfernt sauber den Unterstrich & Abstand */
-.gallery-title.no-border,
-.archive-section-title.no-border {
+/* 3. Archiv-Besonderheit: KEIN Unterstrich */
+.archive-section-title {
     border-bottom: none;
     padding-bottom: 0;
 }
@@ -591,22 +589,21 @@ h1.main-title {
     margin-top: 50px;
 }
 
-.archive-section-title {
-    font-size: 1.1rem;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    margin-bottom: 25px;
-    color: #333;
-}
-
 .gallery-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 15px; /* Reduziert von 30px */
+    margin-bottom: 25px; /* Angenehmer Abstand zum Raster darunter */
     padding-right: 10px;
-    padding-bottom: 0px;  /* Reduziert von 20px, da kein Unterstrich mehr da ist */
+    padding-bottom: 0px;
     border-bottom: none;
+}
+
+/* Verhindert, dass der Titel den Header verschiebt und entfernt den Unterstrich */
+.gallery-header .category-title {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 /* Unterstrich & Abstand NUR für das Archiv beibehalten */
@@ -614,14 +611,6 @@ h1.main-title {
     border-bottom: 1px solid #e0e0e0;
     margin-bottom: 30px;
     padding-bottom: 20px;
-}
-
-.gallery-header .category-title {
-    font-family: inherit;
-    font-size: 1.30rem;
-    font-weight: 250;
-    letter-spacing: 0.05em;
-    margin-bottom: 0;
 }
 
 .gallery-header .category-title a {
