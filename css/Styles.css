@@ -589,6 +589,13 @@ h1.main-title {
     margin-top: 50px;
 }
 
+/* Automatisch für die ERSTE Sektion: Keine Linie & kein oberer Abstand */
+.archive-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
 .gallery-header {
     display: flex;
     align-items: center;
