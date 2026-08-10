@@ -83,6 +83,30 @@ h1, h2, h3 {
     padding-top: 20px;
 }
 
+/* Haupt-Seitentitel für Info- & Rechtstexte (Impressum, Datenschutz) */
+.page-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--primary-color);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+}
+
+.legal-content .gallery-header {
+    margin-bottom: 8px;          /* Holt den Text ("VERANTWORTLICHER") näher an die Linie heran */
+}
+
+.legal-content h2:first-of-type {
+    margin-top: 10px; /* Hier kannst du den Abstand exakt steuern (z.B. 15px oder 20px) */
+}
+
+/* Nachfolgende H2-Überschriften (z.B. "Ihre Betroffenenrechte") behalten ihren gewohnten Freiraum nach oben */
+.legal-content h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
 /* --------------------------------------------------------------------------
    KATEGORIE- & SECTION-ÜBERSCHRIFTEN (Zentral aufgeräumt)
    -------------------------------------------------------------------------- */
@@ -1100,7 +1124,7 @@ h1.main-title {
    ========================================================================== */
 .vita-container {
     max-width: 800px;       
-    margin: 0 auto 60px auto; 
+    margin: 120px auto 60px auto; /* 120px oben, auto links/rechts, 60px unten */
     padding: 0 20px;         
 }
 
@@ -1109,6 +1133,10 @@ h1.main-title {
     margin-bottom: 40px;
     border-bottom: 1px solid #eeeeee; 
     padding-bottom: 20px;
+}
+
+.vita-header .gallery-header {
+    margin-bottom: 40px; /* Standard war 40px – je höher die Zahl, desto größer der Abstand zur Biografie */
 }
 
 .vita-section {
