@@ -816,6 +816,48 @@ h1.main-title {
 }
 
 /* ==========================================================================
+   TEXTE-BOX CONTAINER & TYPOGRAFIE (Exakte Originalwerte)
+   ========================================================================== */
+.texte-box-container {
+    width: 100%;
+    margin-top: 30px;
+    padding: 40px 0;
+}
+
+.text-liste-centered {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.text-liste-centered .text-liste-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.text-liste-centered .text-liste-item:last-child {
+    border-bottom: none;
+}
+
+.text-liste-centered .text-info {
+    line-height: 1.4;
+}
+
+.text-liste-centered .text-info strong {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+
+.text-liste-centered .text-info small {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* ==========================================================================
    8. KONTAKT & BUTTONS
    ========================================================================== */
 .contact-wrapper {
