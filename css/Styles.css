@@ -93,18 +93,58 @@ h1, h2, h3 {
     margin-bottom: 0;
 }
 
+.legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    padding-bottom: 60px;
+}
+
+/* 1. Strich unter Buttons ausschließen (für .back-box-btn UND .back-button-link) */
+.legal-content a.back-box-btn,
+.legal-content a.back-button-link {
+    text-decoration: none !important;
+}
+
+/* 2. Nur Fließtext-Links unterstreichen */
+.legal-content p a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* 3. Abstände wie im Original-Layout */
 .legal-content .gallery-header {
-    margin-bottom: 8px;          /* Holt den Text ("VERANTWORTLICHER") näher an die Linie heran */
+    margin-bottom: 30px; /* Abstand nach der Trennlinie zum Text */
+}
+
+.legal-content h1 {
+    margin-bottom: 0;
+    padding-bottom: 10px;
 }
 
 .legal-content h2:first-of-type {
-    margin-top: 10px; /* Hier kannst du den Abstand exakt steuern (z.B. 15px oder 20px) */
+    margin-top: 0; /* Holt "VERANTWORTLICHER" wieder nah an die Linie */
 }
 
-/* Nachfolgende H2-Überschriften (z.B. "Ihre Betroffenenrechte") behalten ihren gewohnten Freiraum nach oben */
 .legal-content h2 {
-    margin-top: 40px;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legal-content p {
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+
+.legal-notice {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 50px;
 }
 
 /* --------------------------------------------------------------------------
