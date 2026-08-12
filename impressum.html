@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 
-    <!-- Hier korrigiert: -->
     <link rel="stylesheet" href="css/css2.css">
     <link rel="stylesheet" href="css/Styles.css">
 </head>
@@ -20,7 +19,6 @@
     <header class="header">
         <a href="index.html" class="logo">Thomas Prautsch</a>
 
-        <!-- Das hier hat gefehlt! Das bringt dir die 3 Striche fürs Handy-Menü: -->
         <div class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -49,36 +47,40 @@
                 <p>
                     <strong>Thomas Prautsch</strong><br>
                     Künstler<br>
-                    Am Hawerkamp 31 (Atelier)<br>
+                    Am Hawerkamp 31<br>
+                    Haus A (Atelier)<br>
                     48155 Münster
                 </p>
 
                 <h2>Kontakt</h2>
                 <p>
                     Telefon: (+49) 251-6068474<br>
-                    E-Mail: <a href="mailto:mail@thomasprautsch.de">mail@thomasprautsch.de</a>
+                    E-Mail: <span id="email-protection-impressum">Wird geladen...</span>
                 </p>
 
+                <!-- Falls du eine USt-IdNr. hast, hier auskommentieren:
+                <h2>Umsatzsteuer-ID</h2>
+                <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+                DE123456789</p>
+                -->
+
                 <h2>Inhaltlich Verantwortlicher</h2>
-                <p>Gemäß § 18 Abs. 2 MStV (ehemals § 10 Abs. 3 MDStV):<br>
+                <p>Gemäß § 18 Abs. 2 MStV:<br>
                     Thomas Prautsch (Anschrift wie oben)</p>
 
                 <hr>
 
                 <h2>Haftungsausschluss</h2>
-                <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehme
-                    ich keine Haftung für die Inhalte externer Links. Für den Inhalt der
-                    verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+                <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine Haftung für die Inhalte externer Links.
+                    Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
 
                 <h2>Urheberrecht</h2>
-                <p>Der Inhalt dieser Website ist urheberrechtlich
-                    geschützt. Daher bedarf die Vervielfältigung von Informationen oder
-                    Daten, insbesondere die Verwendung von Bildmaterial, von Texten oder
-                    Textteilen der vorherigen Zustimmung des Urhebers. Jede anderweitige
-                    Reproduktion oder Anzeige innerhalb fremder Frames ist ohne schriftliche
-                    Genehmigung untersagt.</p>
+                <p>Der Inhalt dieser Website ist urheberrechtlich geschützt. Daher bedarf die Vervielfältigung von
+                    Informationen oder Daten, insbesondere die Verwendung von Bildmaterial, von Texten oder Textteilen
+                    der vorherigen Zustimmung des Urhebers. Jede anderweitige Reproduktion oder Anzeige innerhalb
+                    fremder Frames ist ohne schriftliche Genehmigung untersagt.</p>
 
-                <h2>Verbraucher­streit­beilegung</h2>
+                <h2>Verbraucherstreitbeilegung</h2>
                 <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
                     Verbraucherschlichtungsstelle teilzunehmen.</p>
 
@@ -118,6 +120,20 @@
     </footer>
 
     <script src="css/Script.js" defer></script>
+
+    <!-- Skript für den E-Mail-Spamschutz -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var user = "mail";
+            var domain = "thomasprautsch.de";
+            var element = document.getElementById("email-protection-impressum");
+
+            if (element) {
+                var email = user + "@" + domain;
+                element.innerHTML = '<a href="mailto:' + email + '">' + email + '</a>';
+            }
+        });
+    </script>
 
 </body>
 
