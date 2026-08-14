@@ -218,7 +218,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="kontakt" class="section bg-light">
             <div class="container">
                 <h2>Kontakt &amp; Atelier</h2>
@@ -231,14 +231,13 @@
                     <div class="contact-info">
                         <p class="address">
                             <strong>Atelier:</strong><br>
-                            Am Hawerkamp 31, Haus A<br>
+                            Am Hawerkamp 31<br>
+                            Gebäude A<br>
                             48155 Münster
                         </p>
 
                         <div class="contact-links">
-                            <a href="mailto:mail@thomasprautsch.de" class="contact-btn">
-                                ✉ mail@thomasprautsch.de
-                            </a>
+                            <a href="#" id="email-protection-kontakt" class="contact-btn">✉ Wird geladen...</a>
 
                             <a href="tel:+492516068474" class="contact-btn">
                                 ☏ Tel: 0251 - 606 84 74
@@ -258,7 +257,7 @@
     <footer class="footer">
         <p>© 2026 Thomas Prautsch. Alle Rechte vorbehalten.</p>
         <p class="footer-credits">
-            Design &amp; Realisierung: Johann Wömpener &amp; Thomas Prautsch
+            Design &amp; Realisierung: Johann Wömpener &amp; Thomas Prausch
         </p>
         <div class="footer-links">
             <a href="impressum.html">Impressum</a>
@@ -284,6 +283,21 @@
     </div>
 
     <script src="css/Script.js" defer></script>
+
+    <!-- Skript für den E-Mail-Spamschutz -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var user = "mail";
+            var domain = "thomasprautsch.de";
+            var email = user + "@" + domain;
+            var element = document.getElementById("email-protection-kontakt");
+
+            if (element) {
+                element.href = "mailto:" + email;
+                element.innerHTML = "✉ " + email;
+            }
+        });
+    </script>
 
 </body>
 

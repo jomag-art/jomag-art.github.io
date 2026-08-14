@@ -937,6 +937,10 @@ h1.main-title {
     margin-top: 15px;
 }
 
+.address {
+    margin-bottom: 25px; /* Erhöht den Abstand nach unten zur E-Mail-Schaltfläche */
+}
+
 /* ==========================================================================
    9. LIGHTBOX BASE STYLES
    ========================================================================== */
