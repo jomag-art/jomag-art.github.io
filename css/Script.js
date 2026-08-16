@@ -211,7 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     images.forEach(img => {
         const revealImage = () => {
-            // Doppeltes AnimationFrame wartet die vollständige Layout-Berechnung des Browsers ab
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
                     img.classList.add('is-loaded');
@@ -224,6 +223,37 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             img.addEventListener('load', revealImage);
             img.addEventListener('error', revealImage);
+        }
+    });
+});
+
+// ==========================================================================
+// E-MAIL-SPAMSCHUTZ (ZENTRAL)
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", function () {
+    var user = "mail";
+    var domain = "thomasprautsch.de";
+    var email = user + "@" + domain;
+    var emailLink = '<a href="mailto:' + email + '">' + email + '</a>';
+
+    // 1. Kontakt-Button (z. B. Startseite)
+    var kontakt = document.getElementById("email-protection-kontakt");
+    if (kontakt) {
+        kontakt.href = "mailto:" + email;
+        kontakt.innerHTML = "✉ " + email;
+    }
+
+    // 2. Impressum
+    var impressum = document.getElementById("email-protection-impressum");
+    if (impressum) {
+        impressum.innerHTML = emailLink;
+    }
+
+    // 3. Datenschutz & weitere Vorkommen
+    ["email-protection-1", "email-protection-2"].forEach(function (id) {
+        var element = document.getElementById(id);
+        if (element) {
+            element.innerHTML = emailLink;
         }
     });
 });

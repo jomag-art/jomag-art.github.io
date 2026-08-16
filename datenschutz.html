@@ -195,26 +195,6 @@
 
     <script src="css/Script.js" defer></script>
 
-    <!-- Skript für den E-Mail-Spamschutz -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var user = "mail";
-            var domain = "thomasprautsch.de";
-            var email = user + "@" + domain;
-            var emailLink = '<a href="mailto:' + email + '">' + email + '</a>';
-
-            // Liste aller IDs auf dieser Seite, die die E-Mail erhalten sollen
-            var ids = ["email-protection-1", "email-protection-2"];
-
-            ids.forEach(function (id) {
-                var element = document.getElementById(id);
-                if (element) {
-                    element.innerHTML = emailLink;
-                }
-            });
-        });
-    </script>
-
 </body>
 
 </html>
