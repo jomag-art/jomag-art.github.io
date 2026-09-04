@@ -404,9 +404,15 @@ h1.main-title {
 
 /* 3. Optimierung für Smartphones */
 @media (max-width: 767px) {
+  /* Bildhöhe auf Mobilgeräten anpassen */
   .exhibition-media,
   .exhibition-media img {
-    max-height: 250px; /* Auf Mobilgeräten etwas moderater und kompakter */
+    max-height: 250px;
+  }
+
+  /* Abstand zwischen Bild und Schrift in der Handy-Ansicht verringern */
+  .exhibition-container {
+    gap: 1.25rem; /* Zuvor 4rem. Hier nach Geschmack anpassen (z. B. 1rem bis 1.5rem) */
   }
 }
 
