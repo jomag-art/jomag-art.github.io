@@ -345,6 +345,154 @@ h1.main-title {
 .category-item:hover img { filter: blur(8px); transform: scale(1.1); }
 .category-item:hover .category-overlay { background-color: rgba(0, 0, 0, 0.6); }
 
+/* ================================================== */
+/* CSS FÜR DIE AUSSTELLUNGS-SECTION */
+/* ================================================== */
+.exhibitions-section {
+  max-width: 1200px;
+  margin: 0rem auto 3rem auto; /* Weniger Abstand nach oben */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.exhibitions-section.hidden {
+  display: none;
+}
+
+.exhibition-alert {
+  padding: 0.5rem;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0; /* Feiner, dezenter Rand */
+  box-sizing: border-box; /* Verhindert Layout-Verschiebungen durch den Rand */
+}
+
+.exhibition-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .exhibition-container {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* 1. Bildbereich: Passt sich flexibel an */
+.exhibition-media {
+  width: 100%;
+  max-height: 350px; /* Begrenzt die Höhe auf Desktop-Bildschirmen */
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2. Das Bild selbst: Passt sich der Höhe an, ohne beschnitten zu werden */
+.exhibition-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
+  object-fit: contain; /* Sorgt dafür, dass die Karte nie abgeschnitten wird */
+  display: block;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+/* 3. Optimierung für Smartphones */
+@media (max-width: 767px) {
+  .exhibition-media,
+  .exhibition-media img {
+    max-height: 250px; /* Auf Mobilgeräten etwas moderater und kompakter */
+  }
+}
+
+.exhibition-media img:hover {
+  opacity: 0.9;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.exhibition-details h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.meta-info {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.description {
+  margin: 1rem 0 0 0;
+  line-height: 1.6;
+}
+
+
+/* ================================================== */
+/* CSS FÜR DIE DUNKLE AUSSTELLUNGS-LIGHTBOX */
+/* ================================================== */
+.exhibition-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* HIER DEN HINTERGRUND DUNKEL MACHEN: */
+  background-color: rgba(15, 15, 15, 0.95); /* Sehr dunkles, fast schwarzes Anthrazit mit leichter Transparenz */
+  
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.exhibition-lightbox.active {
+  display: flex;
+}
+
+.exhibition-lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Schatten für Tiefe auf dunklem Grund */
+  cursor: default;
+}
+
+/* HIER DAS SCHLIESSEN-KREUZ HELLER / WEISS MACHEN: */
+.exhibition-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  
+  color: #ffffff; /* Weißes Kreuz */
+  font-size: 40px;
+  font-weight: 300; /* Etwas feiner gezeichnet für einen eleganten Look */
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 10000;
+  opacity: 0.8;
+}
+
+.exhibition-lightbox-close:hover {
+  color: #ffffff;
+  opacity: 1; /* Wacht beim Drüberfahren mit der Maus auf 100% Deckkraft auf */
+}
+
 /* ==========================================================================
    5. GLOBAL JOMAG-GRID SYSTEM
    ========================================================================== */

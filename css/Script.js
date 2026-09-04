@@ -228,6 +228,42 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================================================
+// Lightbox für Ausstellungen
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', function() {
+  
+    const lightbox = document.getElementById('exhibition-lightbox');
+    const lightboxImg = document.getElementById('exhibition-lightbox-img');
+    const closeBtn = document.querySelector('.exhibition-lightbox-close');
+    const triggers = document.querySelectorAll('.exhibition-lightbox-trigger');
+  
+    // 1. Öffnen der Lightbox beim Klick auf ein Ausstellungsbild
+    triggers.forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        lightboxImg.src = this.src; // Quelle des geklickten Bildes übernehmen
+        lightbox.classList.add('active'); // Lightbox anzeigen
+        document.body.style.overflow = 'hidden'; // Scrollen auf der Hauptseite verhindern
+      });
+    });
+  
+    // 2. Schließen-Funktion (wird mehrfach wiederverwendet)
+    function closeExhibitionLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = ''; // Scrollen wieder aktivieren
+      lightboxImg.src = ''; // Bildquelle leeren (spart Ressourcen)
+    }
+  
+    // 3. Schließen beim Klick auf das Kreuz
+    closeBtn.addEventListener('click', closeExhibitionLightbox);
+  
+    // 4. Schließen beim Klick auf den Hintergrund ODER das Bild
+    lightbox.addEventListener('click', function(e) {
+      // Schließt immer, egal ob auf den Hintergrund oder das Bild geklickt wird
+      closeExhibitionLightbox();
+    });
+  });
+
+// ==========================================================================
 // E-MAIL-SPAMSCHUTZ (ZENTRAL)
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", function () {
