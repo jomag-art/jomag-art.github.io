@@ -302,14 +302,10 @@ h1.main-title {
 
 @media (max-width: 767px) {
     .welcome-img {
-      /* Fallback für ältere Handys */
+      /* Stabile Höhe ohne Ruckeln beim Scrollen */
       height: 78vh; 
   
-      /* Dynamische Höhe: Hohes, elegantes Titelbild */
-      height: 78dvh; 
-  
-      /* WICHTIG: Setzt eine Obergrenze in Pixeln, 
-         damit das Panorama auf riesigen Displays nicht zu stark beschnitten wird */
+      /* Begrenzung für extrem lange Displays */
       max-height: 720px; 
     }
     
