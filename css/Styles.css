@@ -302,14 +302,15 @@ h1.main-title {
 
 @media (max-width: 767px) {
     .welcome-img {
-      /* 1. Fallback für ältere Browser */
-      height: 68vh; 
+      /* Fallback für ältere Handys */
+      height: 78vh; 
   
-      /* 2. Moderner Standard: Passt sich dynamisch der Browserleiste an */
-      height: 68dvh; 
+      /* Dynamische Höhe: Hohes, elegantes Titelbild */
+      height: 78dvh; 
   
-      /* Verhindert extreme Höhen auf sehr langen Mobil-Displays */
-      max-height: 650px; 
+      /* WICHTIG: Setzt eine Obergrenze in Pixeln, 
+         damit das Panorama auf riesigen Displays nicht zu stark beschnitten wird */
+      max-height: 720px; 
     }
     
     .welcome-image-link {
