@@ -64,12 +64,9 @@
             </div>
             <div class="welcome-image-container">
                 <a href="#galerie" class="welcome-image-link">
-                    <picture>
-                        <source srcset="images/thomas-prautsch-atelier-pano.webp" media="(max-width: 767px)">
-                        <!-- fetchpriority="high" sorgt dafür, dass das wichtigste Bild zuerst geladen wird -->
-                        <img src="images/thomas-prautsch-atelier-pano.webp" alt="Thomas Prautsch Kunstwerk"
-                            class="welcome-img" fetchpriority="high">
-                    </picture>
+                    <!-- fetchpriority="high" sorgt dafür, dass das wichtigste Bild zuerst geladen wird -->
+                    <img src="images/thomas-prautsch-atelier-pano.webp" alt="Thomas Prautsch Kunstwerk"
+                        class="welcome-img" fetchpriority="high">
                 </a>
             </div>
         </section>
@@ -78,7 +75,7 @@
         <!-- 1. DIE AUSSTELLUNGS-SECTION (dein Inhalt) -->
         <!-- ================================================== -->
         <section class="exhibitions-section" id="aktuelle-ausstellungen">
-        
+
             <article class="exhibition-alert">
                 <div class="exhibition-container">
                     <div class="exhibition-media">
@@ -89,8 +86,10 @@
                     <div class="exhibition-details">
                         <span class="badge">Aktuelle Ausstellung</span>
                         <h2>Resonanzen</h2>
-                        <p class="meta-info"><strong>Burg Dringenberg -</strong> ART D Driburg Kunst und Kulturverein e.V.</p>
-                        <p class="meta-info"><strong>13.09 – 31.10.2026 -</strong> Eröffnung: Sonntag, 13.9.2026, 11:30 Uhr</p>
+                        <p class="meta-info"><strong>Burg Dringenberg -</strong> ART D Driburg Kunst und Kulturverein
+                            e.V.</p>
+                        <p class="meta-info"><strong>13.09 – 31.10.2026 -</strong> Eröffnung: Sonntag, 13.9.2026, 11:30
+                            Uhr</p>
                         <p class="description">
                             Burg Dringenberg<br>Burgstraße 33<br>33014 Bad Driburg<br>www.artdriburg.com
                         </p>
@@ -102,31 +101,32 @@
                 <div class="exhibition-container">
                     <div class="exhibition-media">
                         <!-- WICHTIG: Die Klasse 'exhibition-lightbox-trigger' -->
-                        <img src="images/thomas-prautsch-gemalte-zeichnungen.webp" alt="Ausstellungsplakat" loading="lazy"
-                            class="exhibition-lightbox-trigger">
+                        <img src="images/thomas-prautsch-gemalte-zeichnungen.webp" alt="Ausstellungsplakat"
+                            loading="lazy" class="exhibition-lightbox-trigger">
                     </div>
                     <div class="exhibition-details">
                         <span class="badge">Aktuelle Ausstellung</span>
                         <h2>Gemalte Zeichnungen</h2>
                         <p class="meta-info"><strong>Last Days Gallery -</strong> Aachen</p>
-                        <p class="meta-info"><strong>25.09. - 11.10.2026 -</strong> Eröffnung: Freitag, 25.09.2026, 19:00 Uhr</p>
+                        <p class="meta-info"><strong>25.09. - 11.10.2026 -</strong> Eröffnung: Freitag, 25.09.2026,
+                            19:00 Uhr</p>
                         <p class="description">
                             Last Days Gallery<br>Warmweiherstrasse 23<br>52066 Aachen<br>www.lastdaysgallery.de
                         </p>
                     </div>
                 </div>
             </article>
-        
+
         </section>
-        
-        
+
+
         <!-- ================================================== -->
         <!-- 2. DIE LIGHTBOX-STRUKTUR (ans Ende vom body packen) -->
         <!-- ================================================== -->
         <div id="exhibition-lightbox" class="exhibition-lightbox">
             <!-- Das Schließen-Kreuz -->
             <span class="exhibition-lightbox-close">&times;</span>
-        
+
             <!-- Der Container für das Bild -->
             <img class="exhibition-lightbox-content" id="exhibition-lightbox-img">
         </div>
