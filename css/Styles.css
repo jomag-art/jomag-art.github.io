@@ -296,21 +296,20 @@ h1.main-title {
     left: 50%;
     transform: translateX(-50%);
     object-fit: cover;
-    object-position: 27% center;
+    object-position: 29% center;
     border-radius: 0px;
 }
 
 @media (max-width: 767px) {
     .welcome-img {
-      /* Stabile Höhe ohne Ruckeln beim Scrollen */
-      height: 78vh; 
-  
-      /* Begrenzung für extrem lange Displays */
-      max-height: 720px; 
+      height: 78vh;
+      max-height: 616px; /* Fällt nie höher aus als die Original-Bildhöhe */
+      object-fit: cover;
+      object-position: 29% center; /* Bildausschnitt leicht nach rechts verschoben */
     }
     
     .welcome-image-link {
-      touch-action: pan-y; 
+      touch-action: pan-y;
     }
   }
 
