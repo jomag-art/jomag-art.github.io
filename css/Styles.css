@@ -302,12 +302,20 @@ h1.main-title {
 
 @media (max-width: 767px) {
     .welcome-img {
-        height: 520px; 
+      /* 1. Fallback für ältere Browser */
+      height: 68vh; 
+  
+      /* 2. Moderner Standard: Passt sich dynamisch der Browserleiste an */
+      height: 68dvh; 
+  
+      /* Verhindert extreme Höhen auf sehr langen Mobil-Displays */
+      max-height: 650px; 
     }
+    
     .welcome-image-link {
-        touch-action: pan-y; 
+      touch-action: pan-y; 
     }
-}
+  }
 
 .category-grid {
     display: grid;
