@@ -84,21 +84,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // --- 4. TASTATUR-STEUERUNG ---
-        document.addEventListener("keydown", (e) => {
-            if (lightbox.style.display === "flex") {
-                if (e.key === "ArrowRight") {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    updateLightbox();
-                }
-                if (e.key === "ArrowLeft") {
-                    currentIndex = (currentIndex - 1 + images.length) % images.length;
-                    updateLightbox();
-                }
-                if (e.key === "Escape") {
-                    lightbox.style.display = "none";
-                }
-            }
-        });
+document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+        if (e.key === "ArrowRight") {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateLightbox();
+        }
+        if (e.key === "ArrowLeft") {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateLightbox();
+        }
+        if (e.key === "Escape") {
+            lightbox.style.display = "none";
+        }
+    }
+
+    // NEU: Escape schließt jetzt auch das Text-Modal (Katalogtexte)
+    if (e.key === "Escape") {
+        const textModal = document.getElementById('textModal');
+        if (textModal && textModal.style.display === "flex") {
+            closeTextModal();
+        }
+    }
+});
 
         // Touch-Gesten Steuerung
         let touchstartX = 0;
