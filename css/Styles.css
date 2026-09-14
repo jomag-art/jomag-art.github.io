@@ -53,7 +53,7 @@ h1, h2, h3 {
     z-index: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .section {
         padding: 80px 5% 40px;
     }
@@ -185,7 +185,7 @@ h1.main-title {
     text-align: left;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     h1.main-title {
         margin: 75px 0 25px 0;
     }
@@ -1525,8 +1525,8 @@ h1.main-title {
     }
 }
 
-/* --- B. MOBILE GERÄTE ALLGEMEIN (bis 768px Breite) --- */
-@media (max-width: 768px) {
+/* --- B. MOBILE GERÄTE ALLGEMEIN (bis 767px Breite) --- */
+@media (max-width: 767px) {
     /* Galerie 1, 2 und 3 Spalten auf 1 Spalte reduzieren */
     .gallery-page.gallery-one-column,
     .gallery-page.gallery-two-columns,
